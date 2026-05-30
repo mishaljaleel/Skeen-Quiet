@@ -206,7 +206,72 @@
 
   var bookingForm = document.getElementById('bookingForm');
   if (bookingForm) {
-    handleFormSubmit(bookingForm, 'Enquiry Submitted!');
+    bookingForm.addEventListener('submit', function (e) {
+      console.log('Booking form submitted');
+      debugger;
+      e.preventDefault();
+
+      var requiredFields = bookingForm.querySelectorAll('[required]');
+      //if (!validateForm(bookingForm, requiredFields)) return;
+
+      var whatsappNumber = (bookingForm.dataset.whatsapp || '9946335425').replace(/\D/g, '');
+      var message = buildBookingWhatsAppMessage(bookingForm);
+      var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+      var btn = bookingForm.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Opening WhatsApp…';
+      btn.disabled = true;
+      bookingForm.reset();
+
+      setTimeout(function () {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 3500);
+    });
+  }
+
+  function getSelectedOptionText(select) {
+    if (!select || select.selectedIndex < 0) return '';
+    return select.options[select.selectedIndex].text.trim();
+  }
+
+  function formatDateAU(dateValue) {
+    if (!dateValue) return '';
+    var parts = dateValue.split('-');
+    if (parts.length !== 3) return dateValue;
+    return parts[2] + '-' + parts[1] + '-' + parts[0];
+  }
+
+  function buildBookingWhatsAppMessage(form) {
+    var name = form.querySelector('[name="name"]').value.trim();
+    var email = form.querySelector('[name="email"]').value.trim();
+    var phone = form.querySelector('[name="phone"]').value.trim();
+    var room = getSelectedOptionText(form.querySelector('[name="room"]'));
+    var checkin = formatDateAU(form.querySelector('[name="checkin"]').value);
+    var duration = getSelectedOptionText(form.querySelector('[name="duration"]'));
+    var notes = form.querySelector('[name="notes"]').value.trim();
+
+    var lines = [
+      'Hello, I would like to submit a booking enquiry for Quiet Corners of Australia.',
+      '',
+      '*Full Name:* ' + name,
+      '*Email:* ' + email,
+      '*Phone:* ' + phone,
+      '*Room Type:* ' + room,
+      '*Preferred Check-in:* ' + checkin,
+      '*Stay Duration:* ' + duration
+    ];
+
+    if (notes) {
+      lines.push('*Additional Notes:* ' + notes);
+    }
+
+    lines.push('', 'Thank you.');
+
+    return lines.join('\n');
   }
 
   /* ---------- Smooth anchor offset for fixed header ---------- */

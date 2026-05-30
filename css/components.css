@@ -1091,6 +1091,36 @@
   line-height: 1.7;
 }
 
+.booking__map {
+  margin-top: var(--space-xl);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+.booking__map iframe {
+  display: block;
+  border: 0;
+  width: 100%;
+  min-height: 280px;
+}
+
+.booking__location {
+  margin-top: var(--space-md);
+  font-size: var(--fs-sm);
+}
+
+.booking__location a {
+  color: var(--color-sand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.booking__location a:hover {
+  color: #ffffff;
+}
+
 .booking__form {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
