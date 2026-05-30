@@ -1,44 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aurora Studio — A modern creative agency crafting bold brands, digital experiences, and visual stories that inspire.">
-  <meta name="keywords" content="creative agency, branding, web design, digital marketing, portfolio">
-  <meta name="author" content="Aurora Studio">
-  <meta property="og:title" content="Aurora Studio | Creative Digital Agency">
-  <meta property="og:description" content="We craft bold brands and digital experiences that inspire.">
+  <meta name="description" content="Woody House — Affordable peaceful shared accommodation for healthcare professionals in Woodchester, South Australia. Furnished rooms near Strathalbyn, Mount Barker & Murray Bridge.">
+  <meta name="keywords" content="healthcare worker accommodation, nurse accommodation South Australia, Woodchester, Strathalbyn, locum housing, shared accommodation, Woody House">
+  <meta name="author" content="Woody House">
+  <meta property="og:title" content="Woody House | Healthcare Worker Accommodation">
+  <meta property="og:description" content="Peaceful furnished rooms for nurses and healthcare professionals. Utilities included. Creekside retreat in Woodchester, SA.">
   <meta property="og:type" content="website">
-  <title>Aurora Studio | Creative Digital Agency</title>
+  <meta property="og:locale" content="en_AU">
+  <title>Woody House | Peaceful Accommodation for Healthcare Professionals</title>
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Woody House",
+    "description": "Peaceful shared accommodation for healthcare professionals in Woodchester, South Australia.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Woodchester",
+      "addressRegion": "SA",
+      "addressCountry": "AU"
+    },
+    "priceRange": "$100-$160/week",
+    "amenityFeature": ["WiFi", "Parking", "Kitchen", "Utilities Included"]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Header -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#" class="logo" aria-label="Aurora Studio home">
-        <img src="assets/icons/logo.svg" alt="" width="32" height="32">
-        <span>Aurora</span>
+      <a href="#home" class="logo" aria-label="Woody House home">
+        <img src="assets/icons/logo.svg" alt="" width="40" height="28">
+        <span class="logo__text">Woody House</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Main navigation">
         <ul class="nav__list">
           <li><a href="#home" class="nav__link active">Home</a></li>
           <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#services" class="nav__link">Services</a></li>
-          <li><a href="#work" class="nav__link">Work</a></li>
-          <li><a href="#testimonials" class="nav__link">Reviews</a></li>
+          <li><a href="#features" class="nav__link">Features</a></li>
+          <li><a href="#nature" class="nav__link">Nature</a></li>
+          <li><a href="#rooms" class="nav__link">Rooms</a></li>
+          <li><a href="#gallery" class="nav__link">Gallery</a></li>
+          <li><a href="#agencies" class="nav__link">Agencies</a></li>
           <li><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
       </nav>
 
-      <a href="#contact" class="btn btn--primary header__cta">Get Started</a>
+      <a href="#booking" class="btn btn--primary header__cta">Book Enquiry</a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="nav-toggle__bar"></span>
@@ -53,66 +74,24 @@
     <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero__bg">
-        <div class="hero__gradient"></div>
-        <div class="hero__pattern"></div>
+        <img src="assets/images/hero-creekside.svg" alt="" class="hero__bg-image" width="800" height="1000">
+        <div class="hero__overlay"></div>
       </div>
       <div class="container hero__inner">
         <div class="hero__content" data-animate="fade-up">
-          <span class="hero__badge">Award-Winning Creative Agency</span>
-          <h1 class="hero__title">
-            We Craft <span class="text-gradient">Bold Brands</span> &amp; Digital Experiences
-          </h1>
-          <p class="hero__subtitle">
-            From strategy to execution, we help ambitious brands stand out with
-            stunning design, seamless development, and measurable results.
-          </p>
+          <span class="hero__location">Woodchester, South Australia</span>
+          <h1 class="hero__title">Affordable Peaceful Accommodation for Healthcare Professionals</h1>
+          <p class="hero__subtitle">Comfortable furnished rooms near Strathalbyn, Mount Barker, and Murray Bridge — designed for rest, recovery, and convenience.</p>
           <div class="hero__actions">
-            <a href="#work" class="btn btn--primary btn--lg">View Our Work</a>
-            <a href="#about" class="btn btn--outline btn--lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
-              </svg>
-              Watch Showreel
-            </a>
+            <a href="#rooms" class="btn btn--primary btn--lg">View Rooms</a>
+            <a href="#contact" class="btn btn--outline btn--lg">Contact Us</a>
+            <a href="#booking" class="btn btn--outline btn--lg">Book Enquiry</a>
           </div>
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <span class="hero__stat-number" data-count="150">0</span><span class="hero__stat-suffix">+</span>
-              <span class="hero__stat-label">Projects Delivered</span>
-            </div>
-            <div class="hero__stat">
-              <span class="hero__stat-number" data-count="12">0</span>
-              <span class="hero__stat-label">Years Experience</span>
-            </div>
-            <div class="hero__stat">
-              <span class="hero__stat-number" data-count="98">0</span><span class="hero__stat-suffix">%</span>
-              <span class="hero__stat-label">Client Satisfaction</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero__visual" data-animate="fade-left">
-          <div class="hero__image-wrapper">
-            <img src="assets/images/hero-main.svg" alt="Creative workspace with design elements" width="600" height="700" class="hero__image">
-            <div class="hero__floating-card hero__floating-card--1">
-              <img src="assets/icons/icon-design.svg" alt="" width="24" height="24">
-              <div>
-                <strong>Brand Identity</strong>
-                <span>Logo &amp; Visual System</span>
-              </div>
-            </div>
-            <div class="hero__floating-card hero__floating-card--2">
-              <img src="assets/icons/icon-code.svg" alt="" width="24" height="24">
-              <div>
-                <strong>Web Development</strong>
-                <span>Fast &amp; Responsive</span>
-              </div>
-            </div>
-          </div>
+          <p class="hero__tagline">Calm spaces. Better days.</p>
         </div>
       </div>
       <a href="#about" class="hero__scroll" aria-label="Scroll to about section">
-        <span>Scroll</span>
+        <span>Explore</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -123,223 +102,353 @@
     <section class="section about" id="about">
       <div class="container">
         <div class="section__header" data-animate="fade-up">
-          <span class="section__label">About Us</span>
-          <h2 class="section__title">Designing the Future,<br>One Project at a Time</h2>
+          <span class="section__label">About Woody House</span>
+          <h2 class="section__title">A Quiet Place to Stay.<br>A Better Place to Be.</h2>
         </div>
         <div class="about__grid">
           <div class="about__content" data-animate="fade-up">
             <p class="about__lead">
-              Aurora Studio is a multidisciplinary creative agency based in New York.
-              We partner with forward-thinking companies to build brands that resonate
-              and digital products that perform.
+              Woody House is a fully furnished 5-bedroom shared residence located in the peaceful village of
+              Woodchester, South Australia — set on a serene 3-acre property surrounded by natural Australian bush.
             </p>
             <p class="about__text">
-              Our team of strategists, designers, and developers work collaboratively
-              to deliver end-to-end solutions — from initial concept through launch
-              and beyond. We believe great design is invisible; it simply works.
+              Designed with healthcare workers in mind, Woody House offers a quiet environment where you can
+              truly rest after long shifts. Reduce commuting fatigue, enjoy ready-to-move-in comfort, and
+              return to a home that supports your wellbeing.
             </p>
             <ul class="about__features">
               <li>
-                <img src="assets/icons/check.svg" alt="" width="20" height="20">
-                <span>User-centered design approach</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>5 fully furnished private bedrooms</span>
               </li>
               <li>
-                <img src="assets/icons/check.svg" alt="" width="20" height="20">
-                <span>Agile development methodology</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Peaceful 3-acre creekside property</span>
               </li>
               <li>
-                <img src="assets/icons/check.svg" alt="" width="20" height="20">
-                <span>Data-driven marketing strategies</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Ideal for nurses after long shifts</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Short and long-stay flexibility</span>
               </li>
             </ul>
-            <a href="#services" class="btn btn--primary">Explore Services</a>
           </div>
-          <div class="about__images" data-animate="fade-left">
-            <div class="about__image about__image--main">
-              <img src="assets/images/about-1.svg" alt="Team collaborating on a project" width="400" height="500">
+          <div class="about__visual" data-animate="fade-left">
+            <div class="about__image about__image--arch">
+              <img src="assets/images/about-property.svg" alt="Woody House property surrounded by pine trees and creekside views" width="500" height="420" loading="lazy">
             </div>
-            <div class="about__image about__image--secondary">
-              <img src="assets/images/about-2.svg" alt="Modern office environment" width="280" height="320">
-            </div>
-            <div class="about__experience">
-              <span class="about__experience-number">12+</span>
-              <span class="about__experience-text">Years of Excellence</span>
+            <div class="about__locations">
+              <span class="about__locations-label">Conveniently located near</span>
+              <div class="about__location-cards">
+                <div class="location-card">
+                  <span class="location-card__time">10 mins</span>
+                  <span class="location-card__name">Strathalbyn</span>
+                </div>
+                <div class="location-card">
+                  <span class="location-card__time">20 mins</span>
+                  <span class="location-card__name">Mount Barker</span>
+                </div>
+                <div class="location-card">
+                  <span class="location-card__time">25 mins</span>
+                  <span class="location-card__name">Murray Bridge</span>
+                </div>
+              </div>
+              <p class="about__script">Stay close to work. Stay closer to peace.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="section services" id="services">
+    <!-- Features -->
+    <section class="section features" id="features">
       <div class="container">
         <div class="section__header section__header--center" data-animate="fade-up">
-          <span class="section__label">Our Services</span>
-          <h2 class="section__title">What We Do Best</h2>
-          <p class="section__desc">Comprehensive creative solutions tailored to elevate your brand and drive measurable growth.</p>
+          <span class="section__label">Accommodation Features</span>
+          <h2 class="section__title">Everything You Need to Feel at Home</h2>
+          <p class="section__desc">Comfortable, practical, and thoughtfully equipped for healthcare professionals on the move.</p>
         </div>
-        <div class="services__grid">
-          <article class="service-card" data-animate="fade-up" data-delay="0">
-            <div class="service-card__icon">
-              <img src="assets/icons/icon-branding.svg" alt="" width="32" height="32">
+        <div class="features__grid">
+          <article class="feature-card" data-animate="fade-up" data-delay="0">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.5"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
-            <h3 class="service-card__title">Brand Strategy</h3>
-            <p class="service-card__desc">Define your voice, visual identity, and market positioning with a cohesive brand system that resonates.</p>
-            <a href="#contact" class="service-card__link">
-              Learn More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            <h3 class="feature-card__title">Fully Furnished Private Rooms</h3>
           </article>
-          <article class="service-card service-card--featured" data-animate="fade-up" data-delay="100">
-            <div class="service-card__icon">
-              <img src="assets/icons/icon-web.svg" alt="" width="32" height="32">
+          <article class="feature-card" data-animate="fade-up" data-delay="50">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
             </div>
-            <h3 class="service-card__title">Web Design &amp; Dev</h3>
-            <p class="service-card__desc">Beautiful, high-performance websites and web applications built with modern technologies and best practices.</p>
-            <a href="#contact" class="service-card__link">
-              Learn More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            <h3 class="feature-card__title">Utilities Included</h3>
           </article>
-          <article class="service-card" data-animate="fade-up" data-delay="200">
-            <div class="service-card__icon">
-              <img src="assets/icons/icon-marketing.svg" alt="" width="32" height="32">
+          <article class="feature-card" data-animate="fade-up" data-delay="100">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
-            <h3 class="service-card__title">Digital Marketing</h3>
-            <p class="service-card__desc">SEO, content strategy, and paid campaigns that attract, engage, and convert your ideal audience.</p>
-            <a href="#contact" class="service-card__link">
-              Learn More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            <h3 class="feature-card__title">Free Internet / WiFi</h3>
           </article>
-          <article class="service-card" data-animate="fade-up" data-delay="300">
-            <div class="service-card__icon">
-              <img src="assets/icons/icon-ui.svg" alt="" width="32" height="32">
+          <article class="feature-card" data-animate="fade-up" data-delay="150">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
-            <h3 class="service-card__title">UI/UX Design</h3>
-            <p class="service-card__desc">Intuitive interfaces and seamless user journeys backed by research, prototyping, and usability testing.</p>
-            <a href="#contact" class="service-card__link">
-              Learn More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            <h3 class="feature-card__title">Shared Kitchen</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="200">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Shared Bathroom &amp; Shower</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="250">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 9V7a2 2 0 00-2-2h-2M4 9V7a2 2 0 012-2h2M4 15v2a2 2 0 002 2h2M20 15v2a2 2 0 01-2 2h-2M9 4h6M9 20h6" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Lounge Access</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="300">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Free Private Parking</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="350">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 9h6v6H9z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Non-Smoking Property</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="400">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Flexible Short &amp; Long Stays</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="450">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M6 8l2 2M18 8l-2 2M4 14h4M16 14h4M6 20l2-2M18 20l-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Self-Catering Kitchen</h3>
+          </article>
+          <article class="feature-card" data-animate="fade-up" data-delay="500">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="feature-card__title">Quiet Village Environment</h3>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Work / Gallery -->
-    <section class="section work" id="work">
-      <div class="container">
-        <div class="section__header" data-animate="fade-up">
-          <span class="section__label">Portfolio</span>
-          <h2 class="section__title">Selected Work</h2>
+    <!-- Nature & Recovery -->
+    <section class="section nature" id="nature">
+      <div class="nature__bg">
+        <img src="assets/images/gallery-creekside.svg" alt="" class="nature__bg-image" width="600" height="450" loading="lazy">
+        <div class="nature__overlay"></div>
+      </div>
+      <div class="container nature__inner">
+        <div class="section__header section__header--center section__header--light" data-animate="fade-up">
+          <span class="section__label">Nature &amp; Recovery</span>
+          <h2 class="section__title">Recharge Between Every Shift</h2>
+          <p class="section__desc">Set on 3 acres with a creek at the back boundary — a peaceful retreat designed to help you mentally and physically recover.</p>
         </div>
-        <div class="work__filters" data-animate="fade-up">
-          <button class="work__filter active" data-filter="all">All</button>
-          <button class="work__filter" data-filter="branding">Branding</button>
-          <button class="work__filter" data-filter="web">Web Design</button>
-          <button class="work__filter" data-filter="marketing">Marketing</button>
+        <div class="nature__grid" data-animate="fade-up">
+          <div class="nature-card">
+            <span class="nature-card__emoji" aria-hidden="true">🌲</span>
+            <h3 class="nature-card__title">Creekside Pine Grove</h3>
+            <p class="nature-card__desc">Relax under towering pines beside the gentle flow of Rodwell Creek.</p>
+          </div>
+          <div class="nature-card">
+            <span class="nature-card__emoji" aria-hidden="true">🛶</span>
+            <h3 class="nature-card__title">Kayaking on Rodwell Creek</h3>
+            <p class="nature-card__desc">Unwind on the water and leave the stress of your shift behind.</p>
+          </div>
+          <div class="nature-card">
+            <span class="nature-card__emoji" aria-hidden="true">🪵</span>
+            <h3 class="nature-card__title">Outdoor BBQ Area</h3>
+            <p class="nature-card__desc">Gather with housemates for a quiet meal in the fresh country air.</p>
+          </div>
+          <div class="nature-card">
+            <span class="nature-card__emoji" aria-hidden="true">🌿</span>
+            <h3 class="nature-card__title">Garden Swing</h3>
+            <p class="nature-card__desc">A gentle spot to read, reflect, and breathe in the stillness.</p>
+          </div>
+          <div class="nature-card">
+            <span class="nature-card__emoji" aria-hidden="true">🌳</span>
+            <h3 class="nature-card__title">Natural Bush Surroundings</h3>
+            <p class="nature-card__desc">Authentic Australian countryside at your doorstep.</p>
+          </div>
         </div>
-        <div class="work__grid">
-          <article class="work-card work-card--large" data-category="branding" data-animate="fade-up">
-            <a href="#" class="work-card__link">
-              <div class="work-card__image">
-                <img src="assets/images/work-1.svg" alt="Nova Tech brand identity project" width="800" height="600">
-              </div>
-              <div class="work-card__overlay">
-                <span class="work-card__category">Branding</span>
-                <h3 class="work-card__title">Nova Tech Rebrand</h3>
-                <span class="work-card__cta">View Project →</span>
-              </div>
-            </a>
-          </article>
-          <article class="work-card" data-category="web" data-animate="fade-up" data-delay="100">
-            <a href="#" class="work-card__link">
-              <div class="work-card__image">
-                <img src="assets/images/work-2.svg" alt="Bloom e-commerce website" width="600" height="450">
-              </div>
-              <div class="work-card__overlay">
-                <span class="work-card__category">Web Design</span>
-                <h3 class="work-card__title">Bloom E-Commerce</h3>
-                <span class="work-card__cta">View Project →</span>
-              </div>
-            </a>
-          </article>
-          <article class="work-card" data-category="marketing" data-animate="fade-up" data-delay="200">
-            <a href="#" class="work-card__link">
-              <div class="work-card__image">
-                <img src="assets/images/work-3.svg" alt="Pulse fitness marketing campaign" width="600" height="450">
-              </div>
-              <div class="work-card__overlay">
-                <span class="work-card__category">Marketing</span>
-                <h3 class="work-card__title">Pulse Fitness Campaign</h3>
-                <span class="work-card__cta">View Project →</span>
-              </div>
-            </a>
-          </article>
-          <article class="work-card" data-category="web" data-animate="fade-up" data-delay="100">
-            <a href="#" class="work-card__link">
-              <div class="work-card__image">
-                <img src="assets/images/work-4.svg" alt="Horizon SaaS dashboard" width="600" height="450">
-              </div>
-              <div class="work-card__overlay">
-                <span class="work-card__category">Web Design</span>
-                <h3 class="work-card__title">Horizon SaaS Dashboard</h3>
-                <span class="work-card__cta">View Project →</span>
-              </div>
-            </a>
-          </article>
-          <article class="work-card work-card--large" data-category="branding" data-animate="fade-up" data-delay="200">
-            <a href="#" class="work-card__link">
-              <div class="work-card__image">
-                <img src="assets/images/work-5.svg" alt="Artisan coffee brand packaging" width="800" height="600">
-              </div>
-              <div class="work-card__overlay">
-                <span class="work-card__category">Branding</span>
-                <h3 class="work-card__title">Artisan Coffee Co.</h3>
-                <span class="work-card__cta">View Project →</span>
-              </div>
-            </a>
-          </article>
-        </div>
+        <blockquote class="nature__quote" data-animate="fade-up">
+          <p>This is not just accommodation — it's a peaceful retreat designed to help healthcare professionals mentally and physically recharge between shifts.</p>
+        </blockquote>
       </div>
     </section>
 
-    <!-- Process -->
-    <section class="section process">
+    <!-- Rooms & Pricing -->
+    <section class="section rooms" id="rooms">
       <div class="container">
         <div class="section__header section__header--center" data-animate="fade-up">
-          <span class="section__label">Our Process</span>
-          <h2 class="section__title">How We Work</h2>
+          <span class="section__label">Rooms &amp; Pricing</span>
+          <h2 class="section__title">Affordable Weekly Rates</h2>
+          <p class="section__desc">Transparent pricing with utilities included. Quiet, clean, and ready when you are.</p>
         </div>
-        <div class="process__steps">
-          <div class="process__step" data-animate="fade-up" data-delay="0">
-            <div class="process__number">01</div>
-            <h3 class="process__title">Discover</h3>
-            <p class="process__desc">We dive deep into your brand, audience, and goals to uncover insights that drive strategy.</p>
+        <div class="pricing__grid">
+          <article class="pricing-card" data-animate="fade-up" data-delay="0">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Single Room</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">$100</span>
+                <span class="pricing-card__period">/ week</span>
+              </div>
+            </div>
+            <p class="pricing-card__discount">$25 discount if you bring your own linen &amp; towel</p>
+            <ul class="pricing-card__features">
+              <li>Utilities included</li>
+              <li>Shared facilities access</li>
+              <li>Quiet &amp; clean environment</li>
+              <li>Fully furnished room</li>
+            </ul>
+            <a href="#booking" class="btn btn--outline btn--full">Enquire Now</a>
+          </article>
+          <article class="pricing-card pricing-card--featured" data-animate="fade-up" data-delay="100">
+            <span class="pricing-card__badge">Most Popular</span>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Double Room (2 People)</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">$160</span>
+                <span class="pricing-card__period">/ week</span>
+              </div>
+            </div>
+            <p class="pricing-card__discount">$35 discount if you bring your own queen-size bed linen</p>
+            <ul class="pricing-card__features">
+              <li>Utilities included</li>
+              <li>Shared facilities access</li>
+              <li>Quiet &amp; clean environment</li>
+              <li>Ideal for colleagues sharing</li>
+            </ul>
+            <a href="#booking" class="btn btn--primary btn--full">Enquire Now</a>
+          </article>
+          <article class="pricing-card" data-animate="fade-up" data-delay="200">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Double Room (Single Occupancy)</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">$120</span>
+                <span class="pricing-card__period">/ week</span>
+              </div>
+            </div>
+            <p class="pricing-card__discount">$35 discount if you bring your own queen-size bed linen</p>
+            <ul class="pricing-card__features">
+              <li>Utilities included</li>
+              <li>Shared facilities access</li>
+              <li>Quiet &amp; clean environment</li>
+              <li>Extra space for comfort</li>
+            </ul>
+            <a href="#booking" class="btn btn--outline btn--full">Enquire Now</a>
+          </article>
+        </div>
+        <div class="pricing__note" data-animate="fade-up">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><strong>Utilities included in the rent</strong> — electricity, water, and internet at no extra cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section__header section__header--center" data-animate="fade-up">
+          <span class="section__label">Gallery</span>
+          <h2 class="section__title">Explore Woody House</h2>
+          <p class="section__desc">From comfortable bedrooms to creekside outdoor spaces — see what makes Woody House special.</p>
+        </div>
+        <div class="gallery__grid">
+          <figure class="gallery__item gallery__item--tall" data-animate="fade-up">
+            <img src="assets/images/gallery-bedroom.svg" alt="Comfortable furnished bedroom at Woody House" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Bedrooms</figcaption>
+          </figure>
+          <figure class="gallery__item" data-animate="fade-up" data-delay="50">
+            <img src="assets/images/gallery-kitchen.svg" alt="Fully equipped shared kitchen" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Shared Kitchen</figcaption>
+          </figure>
+          <figure class="gallery__item" data-animate="fade-up" data-delay="100">
+            <img src="assets/images/gallery-lounge.svg" alt="Comfortable shared lounge area" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Lounge</figcaption>
+          </figure>
+          <figure class="gallery__item gallery__item--wide" data-animate="fade-up" data-delay="150">
+            <img src="assets/images/gallery-creekside.svg" alt="Peaceful creekside outdoor area" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Creekside Area</figcaption>
+          </figure>
+          <figure class="gallery__item" data-animate="fade-up" data-delay="200">
+            <img src="assets/images/gallery-pine-grove.svg" alt="Pine grove with garden swing" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Pine Grove</figcaption>
+          </figure>
+          <figure class="gallery__item" data-animate="fade-up" data-delay="250">
+            <img src="assets/images/gallery-bbq.svg" alt="Outdoor BBQ setup" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">BBQ Setup</figcaption>
+          </figure>
+          <figure class="gallery__item" data-animate="fade-up" data-delay="300">
+            <img src="assets/images/gallery-outdoor.svg" alt="Outdoor seating area" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Outdoor Seating</figcaption>
+          </figure>
+          <figure class="gallery__item" data-animate="fade-up" data-delay="350">
+            <img src="assets/images/gallery-nature.svg" alt="Natural Australian bush surroundings" width="600" height="450" loading="lazy">
+            <figcaption class="gallery__caption">Nature Surroundings</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agencies -->
+    <section class="section agencies" id="agencies">
+      <div class="container">
+        <div class="agencies__inner" data-animate="fade-up">
+          <div class="agencies__content">
+            <span class="section__label">Workforce Accommodation</span>
+            <h2 class="section__title">Partner With Woody House</h2>
+            <p class="agencies__lead">We provide reliable accommodation support for healthcare recruitment agencies, locum placements, and workforce housing programs across South Australia.</p>
+            <ul class="agencies__list">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Accommodation support for healthcare recruitment agencies</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Suitable for locum staff and agency placements</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Flexible arrangements for short and long-term stays</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Group bookings available</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Competitive weekly rates with utilities included</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Long-term workforce partnerships welcome</span>
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn--primary">Discuss Partnership</a>
           </div>
-          <div class="process__step" data-animate="fade-up" data-delay="150">
-            <div class="process__number">02</div>
-            <h3 class="process__title">Design</h3>
-            <p class="process__desc">Concepts come to life through wireframes, prototypes, and polished visual designs.</p>
-          </div>
-          <div class="process__step" data-animate="fade-up" data-delay="300">
-            <div class="process__number">03</div>
-            <h3 class="process__title">Develop</h3>
-            <p class="process__desc">Our engineers build pixel-perfect, performant solutions using cutting-edge tech.</p>
-          </div>
-          <div class="process__step" data-animate="fade-up" data-delay="450">
-            <div class="process__number">04</div>
-            <h3 class="process__title">Deliver</h3>
-            <p class="process__desc">Launch, optimize, and iterate — we stay with you to ensure lasting success.</p>
+          <div class="agencies__stats">
+            <div class="agencies__stat">
+              <span class="agencies__stat-number">5</span>
+              <span class="agencies__stat-label">Private Rooms</span>
+            </div>
+            <div class="agencies__stat">
+              <span class="agencies__stat-number">3</span>
+              <span class="agencies__stat-label">Acres of Peace</span>
+            </div>
+            <div class="agencies__stat">
+              <span class="agencies__stat-number">$100</span>
+              <span class="agencies__stat-label">From / Week</span>
+            </div>
           </div>
         </div>
       </div>
@@ -350,64 +459,65 @@
       <div class="container">
         <div class="section__header section__header--center" data-animate="fade-up">
           <span class="section__label">Testimonials</span>
-          <h2 class="section__title">What Our Clients Say</h2>
+          <h2 class="section__title">What Our Guests Say</h2>
+          <p class="section__desc">Trusted by nurses, aged care workers, and locum professionals across South Australia.</p>
         </div>
         <div class="testimonials__slider" data-animate="fade-up">
           <div class="testimonials__track" id="testimonialTrack">
             <article class="testimonial-card">
               <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <blockquote class="testimonial-card__quote">
-                "Aurora transformed our brand from forgettable to unforgettable. Their strategic approach and stunning design exceeded every expectation."
+                "After 12-hour shifts at the hospital, coming back to Woody House feels like a genuine reset. The creekside setting and quiet rooms have made such a difference to my wellbeing."
               </blockquote>
               <div class="testimonial-card__author">
-                <img src="assets/images/avatar-1.svg" alt="" width="48" height="48" class="testimonial-card__avatar">
+                <div class="testimonial-card__avatar" aria-hidden="true">SR</div>
                 <div>
-                  <strong>Sarah Mitchell</strong>
-                  <span>CEO, Nova Tech</span>
+                  <strong>Sarah R.</strong>
+                  <span>Registered Nurse, Locum</span>
                 </div>
               </div>
             </article>
             <article class="testimonial-card">
               <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <blockquote class="testimonial-card__quote">
-                "The website they built for us increased conversions by 240%. Professional, responsive, and a pleasure to work with from start to finish."
+                "Our agency places aged care workers across regional SA, and Woody House has become our go-to. Affordable, clean, and the hosts genuinely understand what healthcare workers need."
               </blockquote>
               <div class="testimonial-card__author">
-                <img src="assets/images/avatar-2.svg" alt="" width="48" height="48" class="testimonial-card__avatar">
+                <div class="testimonial-card__avatar" aria-hidden="true">MT</div>
                 <div>
-                  <strong>James Chen</strong>
-                  <span>Founder, Bloom</span>
+                  <strong>Michael T.</strong>
+                  <span>Recruitment Agency Manager</span>
                 </div>
               </div>
             </article>
             <article class="testimonial-card">
               <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
-                <img src="assets/icons/star.svg" alt="" width="16" height="16">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <blockquote class="testimonial-card__quote">
-                "Their marketing campaign delivered ROI we never thought possible. Aurora doesn't just create — they deliver real business results."
+                "I stayed for three months on a locum contract. The garden swing by the creek became my daily ritual. It's rare to find accommodation that actually supports recovery, not just sleep."
               </blockquote>
               <div class="testimonial-card__author">
-                <img src="assets/images/avatar-3.svg" alt="" width="48" height="48" class="testimonial-card__avatar">
+                <div class="testimonial-card__avatar" aria-hidden="true">JL</div>
                 <div>
-                  <strong>Emily Rodriguez</strong>
-                  <span>CMO, Pulse Fitness</span>
+                  <strong>James L.</strong>
+                  <span>Locum Healthcare Professional</span>
                 </div>
               </div>
             </article>
@@ -429,30 +539,135 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section cta" id="contact">
+    <!-- Contact -->
+    <section class="section contact" id="contact">
       <div class="container">
-        <div class="cta__inner" data-animate="fade-up">
-          <div class="cta__content">
-            <h2 class="cta__title">Ready to Start Your Next Project?</h2>
-            <p class="cta__desc">Let's create something extraordinary together. Tell us about your vision and we'll make it reality.</p>
+        <div class="section__header section__header--center" data-animate="fade-up">
+          <span class="section__label">Contact Us</span>
+          <h2 class="section__title">Enquiries &amp; Availability</h2>
+          <p class="section__desc">Reach out to check room availability, ask questions, or arrange a visit to Woody House.</p>
+        </div>
+        <div class="contact__grid">
+          <div class="contact__info" data-animate="fade-up">
+            <div class="contact__card">
+              <div class="contact__card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <h3>Phone</h3>
+                <a href="tel:+61400000000">0400 000 000</a>
+              </div>
+            </div>
+            <div class="contact__card">
+              <div class="contact__card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <a href="mailto:enquiries@woodyhouse.com.au">enquiries@woodyhouse.com.au</a>
+              </div>
+            </div>
+            <div class="contact__card">
+              <div class="contact__card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <h3>Location</h3>
+                <p>Woodchester, South Australia</p>
+              </div>
+            </div>
+            <div class="contact__map">
+              <iframe
+                title="Woody House location — Woodchester, South Australia"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=138.85%2C-35.22%2C138.95%2C-35.17&layer=mapnik&marker=-35.195%2C138.901"
+                width="100%"
+                height="220"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
           </div>
-          <form class="cta__form" id="contactForm" novalidate>
-            <div class="cta__form-row">
+          <form class="contact__form" id="contactForm" novalidate data-animate="fade-up" data-delay="100">
+            <h3 class="contact__form-title">Send a Message</h3>
+            <div class="form-row">
               <div class="form-group">
-                <label for="name" class="visually-hidden">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" name="name" required autocomplete="name">
               </div>
               <div class="form-group">
-                <label for="email" class="visually-hidden">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required autocomplete="email">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" name="email" required autocomplete="email">
               </div>
             </div>
             <div class="form-group">
-              <label for="message" class="visually-hidden">Your Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
+              <label for="contactPhone">Phone Number</label>
+              <input type="tel" id="contactPhone" name="phone" autocomplete="tel">
             </div>
-            <button type="submit" class="btn btn--primary btn--lg btn--full">Send Message</button>
+            <div class="form-group">
+              <label for="contactMessage">Your Message</label>
+              <textarea id="contactMessage" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Enquiry -->
+    <section class="section booking" id="booking">
+      <div class="container">
+        <div class="booking__inner" data-animate="fade-up">
+          <div class="booking__content">
+            <span class="section__label">Book Enquiry</span>
+            <h2 class="section__title">Reserve Your Room</h2>
+            <p class="booking__desc">Tell us your preferred dates, room type, and we'll confirm availability as soon as possible.</p>
+          </div>
+          <form class="booking__form" id="bookingForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookingName">Full Name</label>
+                <input type="text" id="bookingName" name="name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="bookingEmail">Email</label>
+                <input type="email" id="bookingEmail" name="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookingPhone">Phone</label>
+                <input type="tel" id="bookingPhone" name="phone" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="bookingRoom">Room Type</label>
+                <select id="bookingRoom" name="room" required>
+                  <option value="">Select room type</option>
+                  <option value="single">Single Room — $100/week</option>
+                  <option value="double-shared">Double Room (2 people) — $160/week</option>
+                  <option value="double-single">Double Room (Single) — $120/week</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookingCheckin">Preferred Check-in</label>
+                <input type="date" id="bookingCheckin" name="checkin" required>
+              </div>
+              <div class="form-group">
+                <label for="bookingDuration">Stay Duration</label>
+                <select id="bookingDuration" name="duration" required>
+                  <option value="">Select duration</option>
+                  <option value="short">Short stay (1–4 weeks)</option>
+                  <option value="medium">Medium stay (1–3 months)</option>
+                  <option value="long">Long stay (3+ months)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="bookingNotes">Additional Notes</label>
+              <textarea id="bookingNotes" name="notes" rows="3" placeholder="Agency name, linen preference, special requirements..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--full">Submit Booking Enquiry</button>
           </form>
         </div>
       </div>
@@ -460,66 +675,58 @@
 
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="#" class="logo logo--light">
-            <img src="assets/icons/logo.svg" alt="" width="32" height="32">
-            <span>Aurora</span>
+          <a href="#home" class="logo logo--light">
+            <img src="assets/icons/logo.svg" alt="" width="40" height="28">
+            <span class="logo__text">Woody House</span>
           </a>
-          <p class="footer__desc">Crafting bold brands and digital experiences that inspire and perform.</p>
+          <p class="footer__desc">Peaceful shared accommodation for healthcare professionals in the heart of the South Australian countryside.</p>
+          <p class="footer__tagline">A quiet place to stay. A better place to be.</p>
           <div class="footer__social">
-            <a href="#" aria-label="Twitter" class="footer__social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" class="footer__social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <a href="#" aria-label="Facebook" class="footer__social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="#" aria-label="Instagram" class="footer__social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="#" aria-label="Dribbble" class="footer__social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.814zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.032C1.758 13.63 2.48 15.39 3.75 16.757zM2.63 10.28c.456.008 4.665.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.17zM9.998 3.03c.264.37 2.093 2.915 3.774 6.002 3.558-1.337 4.986-3.385 5.36-4.088-1.508-1.178-3.413-1.904-5.548-1.904-.417 0-.825.04-1.22.116v.874zm6.38 1.586c-.373.696-1.916 2.762-5.585 4.157.24.49.47.985.68 1.486.08.18.15.357.22.53 3.41-.43 6.8.105 7.14.13-.002-2.603-.845-4.985-2.455-6.903z"/></svg>
-            </a>
           </div>
         </div>
         <div class="footer__links">
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading">Navigation</h4>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#rooms">Rooms &amp; Pricing</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer__links">
-          <h4 class="footer__heading">Services</h4>
+          <h4 class="footer__heading">For Professionals</h4>
           <ul>
-            <li><a href="#services">Brand Strategy</a></li>
-            <li><a href="#services">Web Design</a></li>
-            <li><a href="#services">Digital Marketing</a></li>
-            <li><a href="#services">UI/UX Design</a></li>
-            <li><a href="#services">Consulting</a></li>
+            <li><a href="#rooms">Room Rates</a></li>
+            <li><a href="#agencies">Agency Partnerships</a></li>
+            <li><a href="#booking">Book Enquiry</a></li>
+            <li><a href="#nature">Nature &amp; Recovery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
           </ul>
         </div>
         <div class="footer__contact">
           <h4 class="footer__heading">Get in Touch</h4>
           <address>
-            <p>742 Evergreen Terrace<br>New York, NY 10001</p>
-            <p><a href="mailto:hello@aurorastudio.com">hello@aurorastudio.com</a></p>
-            <p><a href="tel:+12125551234">+1 (212) 555-1234</a></p>
+            <p>Woodchester, South Australia</p>
+            <p><a href="mailto:enquiries@woodyhouse.com.au">enquiries@woodyhouse.com.au</a></p>
+            <p><a href="tel:+61400000000">0400 000 000</a></p>
           </address>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 Aurora Studio. All rights reserved.</p>
-        <div class="footer__legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
+        <p>&copy; 2026 Woody House. All rights reserved.</p>
+        <p class="footer__brand-note">Part of Quiet Corners of Australia</p>
       </div>
     </div>
   </footer>

@@ -1,154 +1,123 @@
-# Aurora Studio
+# Woody House
 
-A professional, modern, and fully responsive creative agency website built from scratch with HTML5, CSS3, and vanilla JavaScript.
+A modern, professional, fully responsive accommodation website for **Woody House** — peaceful shared accommodation for healthcare professionals in Woodchester, South Australia.
+
+Built with HTML5, CSS3, and vanilla JavaScript. No WordPress, Elementor, or framework dependencies.
 
 ## Features
 
-- **Fully responsive** — Optimized layouts for desktop (1200px+), tablet (768–1024px), and mobile (<768px)
-- **Modern UI/UX** — Clean typography, gold accent palette, smooth hover effects, and scroll animations
-- **Performance-focused** — No external dependencies, local SVG assets, minimal JavaScript
-- **SEO-ready** — Semantic HTML, meta tags, Open Graph properties, and accessible markup
-- **Interactive components** — Sticky header, mobile navigation, portfolio filters, testimonial slider, animated counters, and contact form validation
+- **Fully responsive** — Mobile-first design for desktop, tablet, and mobile
+- **Premium countryside aesthetic** — Sage green, warm cream, and wood-inspired palette
+- **10 complete sections** — Hero, About, Features, Nature, Pricing, Gallery, Agencies, Testimonials, Contact, Booking
+- **SEO optimized** — Semantic HTML, meta tags, Open Graph, and JSON-LD structured data
+- **Accessible** — ARIA labels, focus states, reduced-motion support
+- **Interactive** — Sticky header, scroll reveal animations, testimonial slider, form validation
+- **Fast loading** — Local SVG assets, no build step required
 
 ## Project Structure
 
 ```
-aurora-studio/
+Skeen-Quiet/
 ├── index.html              # Main page
-├── README.md               # This file
+├── README.md
 ├── css/
-│   ├── reset.css           # CSS reset & base styles
-│   ├── variables.css       # Design tokens (colors, typography, spacing)
-│   ├── layout.css          # Global layout, buttons, animations
-│   ├── components.css      # Section-specific component styles
+│   ├── reset.css           # CSS reset
+│   ├── variables.css       # Woody House design tokens
+│   ├── layout.css          # Global layout, buttons, forms
+│   ├── components.css      # Section-specific styles
 │   └── responsive.css      # Breakpoint overrides
 ├── js/
-│   └── main.js             # Navigation, animations, slider, form
+│   └── main.js             # Navigation, animations, slider, forms
 └── assets/
-    ├── fonts/              # Local font files (optional)
-    ├── icons/              # SVG icons and logo
-    └── images/             # SVG placeholder illustrations
+    ├── icons/              # Logo and favicon
+    └── images/             # Hero, gallery, and property SVGs
 ```
-
-## Sections
-
-| Section | Description |
-|---------|-------------|
-| Header | Fixed navbar with scroll effect, mobile hamburger menu |
-| Hero | Full-viewport hero with stats, CTA buttons, floating cards |
-| About | Two-column layout with image collage and feature list |
-| Services | Four service cards with hover lift effect |
-| Portfolio | Filterable masonry-style project gallery |
-| Process | Four-step workflow on dark background |
-| Testimonials | Auto-playing slider with dot navigation |
-| Contact | Dark CTA block with validated contact form |
-| Footer | Four-column footer with social links |
 
 ## Quick Start
 
-### Option 1: Open directly
+### Open directly
 
-Double-click `index.html` or open it in your browser:
+Double-click `index.html` or open in your browser.
 
-```
-file:///C:/Users/PSS_OMNE_TEAM/aurora-studio/index.html
-```
-
-### Option 2: Local development server (recommended)
-
-Using Python:
+### Local development server (recommended)
 
 ```bash
-cd aurora-studio
+cd Skeen-Quiet
 python -m http.server 8080
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080)
+Visit [http://localhost:8080](http://localhost:8080)
 
-Using Node.js (npx):
+Or with Node.js:
 
 ```bash
-cd aurora-studio
 npx serve .
 ```
 
-Using PHP:
-
-```bash
-cd aurora-studio
-php -S localhost:8080
-```
-
-### Option 3: VS Code Live Server
-
-Install the "Live Server" extension, right-click `index.html`, and select "Open with Live Server".
-
 ## Customization
 
-### Colors
+### Replace placeholder contact details
 
-Edit CSS custom properties in `css/variables.css`:
+Update phone and email in `index.html`:
+
+- Phone: `0400 000 000`
+- Email: `enquiries@woodyhouse.com.au`
+
+### Add real photography
+
+Replace SVG placeholders in `assets/images/` with JPG or WebP photos:
+
+1. Add photos to `assets/images/`
+2. Update `<img src="...">` paths in `index.html`
+3. Use `loading="lazy"` for below-the-fold images
+
+Recommended photos: bedrooms, kitchen, lounge, creekside, pine grove, BBQ area.
+
+### Brand colors
+
+Edit `css/variables.css`:
 
 ```css
-:root {
-  --color-accent: #c9a962;      /* Primary gold accent */
-  --color-bg: #faf9f7;          /* Page background */
-  --color-dark: #0f0f0f;        /* Dark sections */
-}
+--color-accent: #5E6D59;      /* Sage green */
+--color-secondary: #D68E49;   /* Terracotta accent */
+--color-bg: #F9F7F2;          /* Warm cream background */
 ```
 
 ### Typography
 
-The site uses **Playfair Display** (headings) and **DM Sans** (body). Install these fonts locally for best results, or update `--font-body` and `--font-heading` in `variables.css` to use your preferred typefaces.
+Uses Google Fonts: **Playfair Display** (headings), **DM Sans** (body), **Cormorant Garamond** (script accents). For fully offline use, download fonts to `assets/fonts/` and update `@font-face` rules.
 
-To add local font files:
+## Sections
 
-1. Place `.woff2` files in `assets/fonts/`
-2. Update `@font-face` rules in `css/variables.css` with the file paths
-
-### Content
-
-All text content is in `index.html`. Replace placeholder copy, update links, and swap SVG images in `assets/images/` with your own photography or illustrations.
-
-### Images
-
-Current images are lightweight SVG placeholders. Replace them with JPG/WebP photos:
-
-1. Add images to `assets/images/`
-2. Update `<img src="...">` paths in `index.html`
-3. Add `loading="lazy"` for below-the-fold images
-
-## Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-Uses progressive enhancement: Intersection Observer for scroll animations with graceful fallback.
-
-## Performance Tips
-
-- SVG assets are already optimized for fast loading
-- No render-blocking external scripts or stylesheets
-- Consider converting hero/portfolio images to WebP for production
-- Minify CSS/JS before deployment (`css/` and `js/` files)
+| Section | ID | Description |
+|---------|-----|-------------|
+| Hero | `#home` | Full-viewport hero with CTAs |
+| About | `#about` | Property overview and travel times |
+| Features | `#features` | 11 accommodation feature cards |
+| Nature | `#nature` | Recovery and outdoor experience |
+| Rooms | `#rooms` | Three pricing tiers |
+| Gallery | `#gallery` | Masonry-style photo grid |
+| Agencies | `#agencies` | Workforce accommodation partnerships |
+| Testimonials | `#testimonials` | Auto-playing review slider |
+| Contact | `#contact` | Contact form, map, and details |
+| Booking | `#booking` | Room enquiry form |
 
 ## Deployment
 
-Upload the entire `aurora-studio/` folder to any static hosting:
+Upload the entire folder to any static host:
 
-- **Netlify** — Drag and drop the folder
+- **Netlify** — Drag and drop
 - **Vercel** — `vercel --prod`
-- **GitHub Pages** — Push to a repo and enable Pages
-- **Any web server** — Copy files to your document root
+- **GitHub Pages** — Enable Pages on the repo
 
 No build step required.
 
-## License
+## Browser Support
 
-Free to use and modify for personal and commercial projects. Replace placeholder content and branding with your own before publishing.
+Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 
 ---
 
-Built with care by Aurora Studio.
+**Woody House** — A quiet place to stay. A better place to be.
+
+Part of Quiet Corners of Australia.

@@ -22,9 +22,19 @@ body {
 
 .section__header--center {
   text-align: center;
-  max-width: 640px;
+  max-width: 680px;
   margin-inline: auto;
   margin-bottom: var(--space-3xl);
+}
+
+.section__header--light .section__label,
+.section__header--light .section__title,
+.section__header--light .section__desc {
+  color: #ffffff;
+}
+
+.section__header--light .section__desc {
+  opacity: 0.85;
 }
 
 .section__label {
@@ -32,7 +42,7 @@ body {
   font-size: var(--fs-sm);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--color-accent);
   margin-bottom: var(--space-md);
 }
@@ -50,13 +60,6 @@ body {
   font-size: var(--fs-md);
   color: var(--color-text-muted);
   line-height: 1.7;
-}
-
-.text-gradient {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .visually-hidden {
@@ -80,26 +83,30 @@ body {
   padding: 0.75rem 1.75rem;
   font-size: var(--fs-sm);
   font-weight: 600;
+  letter-spacing: 0.02em;
   border-radius: var(--radius-full);
+  border: 2px solid transparent;
   transition: all var(--transition-base);
   white-space: nowrap;
 }
 
 .btn--primary {
   background: var(--color-accent);
-  color: var(--color-dark);
+  color: #ffffff;
+  border-color: var(--color-accent);
 }
 
 .btn--primary:hover {
   background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201, 169, 98, 0.35);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--outline {
   background: transparent;
   color: var(--color-text);
-  border: 1.5px solid var(--color-border);
+  border-color: var(--color-border);
 }
 
 .btn--outline:hover {
@@ -108,8 +115,21 @@ body {
   transform: translateY(-2px);
 }
 
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
 .btn--lg {
-  padding: 1rem 2.25rem;
+  padding: 0.9rem 2rem;
   font-size: var(--fs-base);
 }
 
@@ -117,30 +137,79 @@ body {
   width: 100%;
 }
 
-/* Animations */
+/* Scroll Animations */
 [data-animate] {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
 [data-animate="fade-left"] {
-  transform: translateX(40px);
+  transform: translateX(30px);
 }
 
-[data-animate].is-visible {
+[data-animate="fade-up"].is-visible,
+[data-animate="fade-left"].is-visible {
   opacity: 1;
   transform: translate(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  [data-animate] {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
-    transform: none;
-    transition: none;
+    transform: translateY(0);
   }
+}
 
-  html {
-    scroll-behavior: auto;
-  }
+/* Form Elements */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input.is-error,
+.form-group textarea.is-error,
+.form-group select.is-error {
+  border-color: #c0392b;
 }

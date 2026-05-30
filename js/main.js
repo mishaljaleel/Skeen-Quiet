@@ -1,23 +1,25 @@
 /**
- * Aurora Studio — Main JavaScript
- * Handles navigation, scroll animations, counters, filters, and testimonials.
+ * Woody House — Main JavaScript
+ * Navigation, scroll animations, testimonials slider, and form handling.
  */
 
 (function () {
   'use strict';
 
   /* ---------- Navigation ---------- */
-  const header = document.getElementById('header');
-  const nav = document.getElementById('nav');
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.querySelectorAll('.nav__link');
+  var header = document.getElementById('header');
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.querySelectorAll('.nav__link');
 
   function handleScroll() {
-    header.classList.toggle('is-scrolled', window.scrollY > 50);
+    if (header) {
+      header.classList.toggle('is-scrolled', window.scrollY > 50);
+    }
   }
 
   function toggleNav() {
-    const isOpen = nav.classList.toggle('is-open');
+    var isOpen = nav.classList.toggle('is-open');
     navToggle.classList.toggle('is-active', isOpen);
     navToggle.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -30,7 +32,9 @@
     document.body.style.overflow = '';
   }
 
-  navToggle.addEventListener('click', toggleNav);
+  if (navToggle) {
+    navToggle.addEventListener('click', toggleNav);
+  }
 
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
@@ -44,10 +48,10 @@
   handleScroll();
 
   /* ---------- Scroll Animations ---------- */
-  const animatedElements = document.querySelectorAll('[data-animate]');
+  var animatedElements = document.querySelectorAll('[data-animate]');
 
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(function (entries) {
+    var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           var delay = entry.target.dataset.delay || 0;
@@ -58,8 +62,8 @@
         }
       });
     }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     });
 
     animatedElements.forEach(function (el) {
@@ -68,44 +72,6 @@
   } else {
     animatedElements.forEach(function (el) {
       el.classList.add('is-visible');
-    });
-  }
-
-  /* ---------- Counter Animation ---------- */
-  function animateCounter(el) {
-    var target = parseInt(el.dataset.count, 10);
-    var duration = 2000;
-    var start = 0;
-    var startTime = null;
-
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target);
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target;
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  var counters = document.querySelectorAll('[data-count]');
-  if ('IntersectionObserver' in window) {
-    var counterObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    counters.forEach(function (counter) {
-      counterObserver.observe(counter);
     });
   }
 
@@ -133,37 +99,13 @@
 
   window.addEventListener('scroll', highlightNav, { passive: true });
 
-  /* ---------- Portfolio Filter ---------- */
-  var filters = document.querySelectorAll('.work__filter');
-  var workCards = document.querySelectorAll('.work-card');
-
-  filters.forEach(function (filter) {
-    filter.addEventListener('click', function () {
-      var category = filter.dataset.filter;
-
-      filters.forEach(function (f) { f.classList.remove('active'); });
-      filter.classList.add('active');
-
-      workCards.forEach(function (card) {
-        if (category === 'all' || card.dataset.category === category) {
-          card.classList.remove('is-hidden');
-          card.style.animation = 'none';
-          card.offsetHeight;
-          card.style.animation = '';
-        } else {
-          card.classList.add('is-hidden');
-        }
-      });
-    });
-  });
-
   /* ---------- Testimonials Slider ---------- */
   var track = document.getElementById('testimonialTrack');
   var prevBtn = document.getElementById('testimonialPrev');
   var nextBtn = document.getElementById('testimonialNext');
   var dotsContainer = document.getElementById('testimonialDots');
 
-  if (track && prevBtn && nextBtn) {
+  if (track && prevBtn && nextBtn && dotsContainer) {
     var slides = track.querySelectorAll('.testimonial-card');
     var currentIndex = 0;
     var autoplayInterval;
@@ -216,44 +158,71 @@
     track.addEventListener('mouseleave', resetAutoplay);
   }
 
-  /* ---------- Contact Form ---------- */
-  var contactForm = document.getElementById('contactForm');
+  /* ---------- Form Validation Helper ---------- */
+  function validateForm(form, fields) {
+    var valid = true;
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var name = contactForm.querySelector('#name');
-      var email = contactForm.querySelector('#email');
-      var message = contactForm.querySelector('#message');
-      var valid = true;
-
-      [name, email, message].forEach(function (field) {
-        field.style.borderColor = '';
-        if (!field.value.trim()) {
-          field.style.borderColor = '#e74c3c';
-          valid = false;
-        }
-      });
-
-      if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        email.style.borderColor = '#e74c3c';
+    fields.forEach(function (field) {
+      field.classList.remove('is-error');
+      if (!field.value.trim()) {
+        field.classList.add('is-error');
         valid = false;
       }
+    });
 
-      if (valid) {
-        var btn = contactForm.querySelector('button[type="submit"]');
-        var originalText = btn.textContent;
-        btn.textContent = 'Message Sent!';
-        btn.disabled = true;
-        contactForm.reset();
+    var emailField = form.querySelector('input[type="email"]');
+    if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+      emailField.classList.add('is-error');
+      valid = false;
+    }
 
-        setTimeout(function () {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 3000);
-      }
+    return valid;
+  }
+
+  function handleFormSubmit(form, successMessage) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var requiredFields = form.querySelectorAll('[required]');
+      if (!validateForm(form, requiredFields)) return;
+
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = successMessage;
+      btn.disabled = true;
+      form.reset();
+
+      setTimeout(function () {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 3500);
     });
   }
+
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    handleFormSubmit(contactForm, 'Message Sent!');
+  }
+
+  var bookingForm = document.getElementById('bookingForm');
+  if (bookingForm) {
+    handleFormSubmit(bookingForm, 'Enquiry Submitted!');
+  }
+
+  /* ---------- Smooth anchor offset for fixed header ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 80;
+        var top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
 
 })();
