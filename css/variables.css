@@ -1,5 +1,41 @@
 /* Shared design tokens (theme-independent) */
 :root {
+  /* Quiet Corners of Australia brand colors */
+  --color-bg: #F9F7F2;
+  --color-bg-alt: #F0EDE8;
+  --color-bg-warm: #E8E4DC;
+  --color-surface: #ffffff;
+  --color-text: #2C333A;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #8E8E8E;
+  --color-border: #E5E2DD;
+  --color-accent: #5E6D59;
+  --color-accent-hover: #4A5646;
+  --color-accent-light: rgba(94, 109, 89, 0.12);
+  --color-secondary: #D68E49;
+  --color-secondary-light: rgba(214, 142, 73, 0.15);
+  --color-sage: #98A68D;
+  --color-sand: #D9C2A3;
+  --color-wood: #8B7355;
+  --color-dark: #2C333A;
+  --color-dark-surface: #4A5646;
+
+  /* Hero over photo */
+  --color-hero-text: #F9F7F2;
+  --color-hero-text-muted: rgba(249, 247, 242, 0.92);
+  --color-hero-accent: #D9C2A3;
+  --hero-text-shadow: 0 2px 20px rgba(18, 24, 20, 0.55), 0 1px 4px rgba(0, 0, 0, 0.35);
+  --hero-text-shadow-soft: 0 1px 12px rgba(18, 24, 20, 0.45);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, #5E6D59 0%, #98A68D 50%, #5E6D59 100%);
+  --gradient-hero:
+    linear-gradient(105deg, rgba(18, 24, 20, 0.78) 0%, rgba(18, 24, 20, 0.52) 42%, rgba(18, 24, 20, 0.18) 68%, transparent 100%),
+    linear-gradient(to top, rgba(249, 247, 242, 0.96) 0%, rgba(249, 247, 242, 0.4) 22%, transparent 48%);
+  --gradient-nature: linear-gradient(180deg, rgba(44, 51, 58, 0.7) 0%, rgba(74, 86, 70, 0.85) 100%);
+  --gradient-sage: linear-gradient(135deg, #5E6D59 0%, #4A5646 100%);
+
+  /* Typography */
   --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-script: 'Cormorant Garamond', Georgia, serif;
@@ -27,7 +63,7 @@
 
   --container-max: 1200px;
   --container-padding: 1.5rem;
-  --header-height: 80px;
+  --header-height: 92px;
 
   --radius-sm: 8px;
   --radius-md: 12px;

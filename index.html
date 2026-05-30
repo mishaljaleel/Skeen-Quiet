@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Woody House — Affordable peaceful shared accommodation for healthcare professionals in Woodchester, South Australia. Furnished rooms near Strathalbyn, Mount Barker & Murray Bridge.">
-  <meta name="keywords" content="healthcare worker accommodation, nurse accommodation South Australia, Woodchester, Strathalbyn, locum housing, shared accommodation, Woody House">
-  <meta name="author" content="Woody House">
-  <meta property="og:title" content="Woody House | Healthcare Worker Accommodation">
+  <meta name="description" content="Quiet Corners of Australia — Affordable peaceful shared accommodation for healthcare professionals in Woodchester, South Australia. Furnished rooms near Strathalbyn, Mount Barker & Murray Bridge.">
+  <meta name="keywords" content="healthcare worker accommodation, nurse accommodation South Australia, Woodchester, Strathalbyn, locum housing, shared accommodation, Quiet Corners of Australia">
+  <meta name="author" content="Quiet Corners of Australia">
+  <meta property="og:title" content="Quiet Corners of Australia | Healthcare Worker Accommodation">
   <meta property="og:description" content="Peaceful furnished rooms for nurses and healthcare professionals. Utilities included. Creekside retreat in Woodchester, SA.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_AU">
-  <title>Woody House | Peaceful Accommodation for Healthcare Professionals</title>
   <script>
     (function () {
       var k = 'woodyhouse-theme';
@@ -31,6 +30,7 @@
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
+  <title>Quiet Corners of Australia | Peaceful Accommodation for Healthcare Professionals</title>
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,7 @@
   {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
-    "name": "Woody House",
+    "name": "Quiet Corners of Australia",
     "description": "Peaceful shared accommodation for healthcare professionals in Woodchester, South Australia.",
     "address": {
       "@type": "PostalAddress",
@@ -62,9 +62,11 @@
 
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#home" class="logo" aria-label="Woody House home">
-        <img src="assets/icons/logo.svg" alt="" width="40" height="28">
-        <span class="logo__text">Woody House</span>
+      <a href="#home" class="logo" aria-label="Quiet Corners of Australia home">
+        <span class="logo__mark" aria-hidden="true">
+          <img src="assets/icons/qca-logo.svg" alt="" class="logo__img" width="56" height="50" decoding="async" fetchpriority="high">
+        </span>
+        <span class="logo__text">Quiet Corners<span class="logo__sub">of Australia</span></span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Main navigation">
@@ -75,8 +77,8 @@
           <li><a href="#nature" class="nav__link">Nature</a></li>
           <li><a href="#rooms" class="nav__link">Rooms</a></li>
           <li><a href="#gallery" class="nav__link">Gallery</a></li>
-          <li><a href="#agencies" class="nav__link">Agencies</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <!-- <li><a href="#agencies" class="nav__link">Agencies</a></li> -->
+          <li><a href="#booking" class="nav__link">Contact</a></li>
         </ul>
       </nav>
 
@@ -97,30 +99,31 @@
         <a href="#booking" class="btn btn--primary header__cta">Book Enquiry</a>
       </div>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
       </button>
     </div>
   </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
   <main>
 
     <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero__bg">
-        <img src="assets/images/hero-creekside.svg" alt="" class="hero__bg-image" width="800" height="1000">
+        <img src="assets/images/primary.jpg" alt="" class="hero__bg-image" width="1920" height="1080" fetchpriority="high" decoding="async">
         <div class="hero__overlay"></div>
       </div>
       <div class="container hero__inner">
         <div class="hero__content" data-animate="fade-up">
-          <span class="hero__location">Woodchester, South Australia</span>
-          <h1 class="hero__title">Affordable Peaceful Accommodation for Healthcare Professionals</h1>
+          <span class="hero__location">Quiet Corners of Australia</span>
+          <h1 class="hero__title">Your Home Away From Home</h1>
           <p class="hero__subtitle">Comfortable furnished rooms near Strathalbyn, Mount Barker, and Murray Bridge — designed for rest, recovery, and convenience.</p>
           <div class="hero__actions">
             <a href="#rooms" class="btn btn--primary btn--lg">View Rooms</a>
-            <a href="#contact" class="btn btn--outline btn--lg">Contact Us</a>
+            <!-- <a href="#contact" class="btn btn--outline btn--lg">Contact Us</a> -->
             <a href="#booking" class="btn btn--outline btn--lg">Book Enquiry</a>
           </div>
           <p class="hero__tagline">Calm spaces. Better days.</p>
@@ -138,17 +141,17 @@
     <section class="section about" id="about">
       <div class="container">
         <div class="section__header" data-animate="fade-up">
-          <span class="section__label">About Woody House</span>
+          <span class="section__label">About Quiet Corners of Australia</span>
           <h2 class="section__title">A Quiet Place to Stay.<br>A Better Place to Be.</h2>
         </div>
         <div class="about__grid">
           <div class="about__content" data-animate="fade-up">
             <p class="about__lead">
-              Woody House is a fully furnished 5-bedroom shared residence located in the peaceful village of
+              Quiet Corners of Australia is a fully furnished 5-bedroom shared residence located in the peaceful village of
               Woodchester, South Australia — set on a serene 3-acre property surrounded by natural Australian bush.
             </p>
             <p class="about__text">
-              Designed with healthcare workers in mind, Woody House offers a quiet environment where you can
+              Designed with healthcare workers in mind, Quiet Corners of Australia offers a quiet environment where you can
               truly rest after long shifts. Reduce commuting fatigue, enjoy ready-to-move-in comfort, and
               return to a home that supports your wellbeing.
             </p>
@@ -173,7 +176,7 @@
           </div>
           <div class="about__visual" data-animate="fade-left">
             <div class="about__image about__image--arch">
-              <img src="assets/images/about-property.svg" alt="Woody House property surrounded by pine trees and creekside views" width="500" height="420" loading="lazy">
+              <img src="assets/images/qca-frontview.jpeg" alt="Quiet Corners of Australia property surrounded by pine trees and creekside views" width="500" height="420" loading="lazy">
             </div>
             <div class="about__locations">
               <span class="about__locations-label">Conveniently located near</span>
@@ -207,18 +210,18 @@
           <p class="section__desc">Comfortable, practical, and thoughtfully equipped for healthcare professionals on the move.</p>
         </div>
         <div class="features__grid">
-          <article class="feature-card" data-animate="fade-up" data-delay="0">
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="0">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.5"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3 class="feature-card__title">Fully Furnished Private Rooms</h3>
-          </article>
-          <article class="feature-card" data-animate="fade-up" data-delay="50">
+          </article> -->
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="50">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
             </div>
             <h3 class="feature-card__title">Utilities Included</h3>
-          </article>
+          </article> -->
           <article class="feature-card" data-animate="fade-up" data-delay="100">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -231,12 +234,12 @@
             </div>
             <h3 class="feature-card__title">Shared Kitchen</h3>
           </article>
-          <article class="feature-card" data-animate="fade-up" data-delay="200">
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="200">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3 class="feature-card__title">Shared Bathroom &amp; Shower</h3>
-          </article>
+          </article> -->
           <article class="feature-card" data-animate="fade-up" data-delay="250">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 9V7a2 2 0 00-2-2h-2M4 9V7a2 2 0 012-2h2M4 15v2a2 2 0 002 2h2M20 15v2a2 2 0 01-2 2h-2M9 4h6M9 20h6" stroke="currentColor" stroke-width="1.5"/></svg>
@@ -249,30 +252,30 @@
             </div>
             <h3 class="feature-card__title">Free Private Parking</h3>
           </article>
-          <article class="feature-card" data-animate="fade-up" data-delay="350">
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="350">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 9h6v6H9z" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3 class="feature-card__title">Non-Smoking Property</h3>
-          </article>
-          <article class="feature-card" data-animate="fade-up" data-delay="400">
+          </article> -->
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="400">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3 class="feature-card__title">Flexible Short &amp; Long Stays</h3>
-          </article>
-          <article class="feature-card" data-animate="fade-up" data-delay="450">
+          </article> -->
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="450">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M6 8l2 2M18 8l-2 2M4 14h4M16 14h4M6 20l2-2M18 20l-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3 class="feature-card__title">Self-Catering Kitchen</h3>
-          </article>
-          <article class="feature-card" data-animate="fade-up" data-delay="500">
+          </article> -->
+          <!-- <article class="feature-card" data-animate="fade-up" data-delay="500">
             <div class="feature-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3 class="feature-card__title">Quiet Village Environment</h3>
-          </article>
+          </article> -->
         </div>
       </div>
     </section>
@@ -280,7 +283,7 @@
     <!-- Nature & Recovery -->
     <section class="section nature" id="nature">
       <div class="nature__bg">
-        <img src="assets/images/gallery-creekside.svg" alt="" class="nature__bg-image" width="600" height="450" loading="lazy">
+        <img src="assets/images/primary.jpg" alt="Creekside pine grove and peaceful outdoor setting at Quiet Corners of Australia" class="nature__bg-image" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="nature__overlay"></div>
       </div>
       <div class="container nature__inner">
@@ -396,53 +399,59 @@
       <div class="container">
         <div class="section__header section__header--center" data-animate="fade-up">
           <span class="section__label">Gallery</span>
-          <h2 class="section__title">Explore Woody House</h2>
-          <p class="section__desc">From comfortable bedrooms to creekside outdoor spaces — see what makes Woody House special.</p>
+          <h2 class="section__title">Explore Quiet Corners of Australia</h2>
+          <p class="section__desc">From comfortable bedrooms to creekside outdoor spaces — see what makes Quiet Corners of Australia special.</p>
         </div>
-        <div class="gallery__grid">
-          <figure class="gallery__item gallery__item--tall" data-animate="fade-up">
-            <img src="assets/images/gallery-bedroom.svg" alt="Comfortable furnished bedroom at Woody House" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Bedrooms</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="50">
-            <img src="assets/images/gallery-kitchen.svg" alt="Fully equipped shared kitchen" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Shared Kitchen</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="100">
-            <img src="assets/images/gallery-lounge.svg" alt="Comfortable shared lounge area" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Lounge</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--wide" data-animate="fade-up" data-delay="150">
-            <img src="assets/images/gallery-creekside.svg" alt="Peaceful creekside outdoor area" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Creekside Area</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="200">
-            <img src="assets/images/gallery-pine-grove.svg" alt="Pine grove with garden swing" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Pine Grove</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="250">
-            <img src="assets/images/gallery-bbq.svg" alt="Outdoor BBQ setup" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">BBQ Setup</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="300">
-            <img src="assets/images/gallery-outdoor.svg" alt="Outdoor seating area" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Outdoor Seating</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="350">
-            <img src="assets/images/gallery-nature.svg" alt="Natural Australian bush surroundings" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Nature Surroundings</figcaption>
-          </figure>
+        <div class="gallery__panel" id="galleryCategories" data-animate="fade-up">
+          <div class="gallery__categories" id="galleryCategoriesGrid" role="list" aria-label="Photo categories"></div>
+        </div>
+        <div class="gallery__panel gallery__album" id="galleryAlbum" hidden>
+          <div class="gallery__album-header">
+            <button type="button" class="gallery__back" id="galleryAlbumBack" aria-label="Back to all categories">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              All categories
+            </button>
+            <div class="gallery__album-heading">
+              <h3 class="gallery__album-title" id="galleryAlbumTitle"></h3>
+              <p class="gallery__album-count" id="galleryAlbumCount"></p>
+            </div>
+          </div>
+          <div class="gallery__album-grid" id="galleryAlbumGrid" role="list"></div>
         </div>
       </div>
     </section>
 
+    <!-- Gallery lightbox -->
+    <div class="gallery-lightbox" id="galleryLightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+      <div class="gallery-lightbox__backdrop" data-lightbox-close></div>
+      <button type="button" class="gallery-lightbox__close" id="galleryLightboxClose" aria-label="Close gallery">&times;</button>
+      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="galleryLightboxPrev" aria-label="Previous image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" id="galleryLightboxNext" aria-label="Next image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="gallery-lightbox__stage" id="galleryLightboxStage">
+        <img class="gallery-lightbox__img" id="galleryLightboxImg" alt="">
+      </div>
+      <div class="gallery-lightbox__footer">
+        <button type="button" class="gallery-lightbox__zoom-btn" id="galleryLightboxZoomOut" aria-label="Zoom out">&minus;</button>
+        <div class="gallery-lightbox__meta">
+          <p class="gallery-lightbox__category" id="galleryLightboxCategory"></p>
+          <p class="gallery-lightbox__caption" id="galleryLightboxCaption"></p>
+          <p class="gallery-lightbox__counter" id="galleryLightboxCounter"></p>
+        </div>
+        <button type="button" class="gallery-lightbox__zoom-btn" id="galleryLightboxZoomIn" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+
     <!-- Agencies -->
-    <section class="section agencies" id="agencies">
+    <!-- <section class="section agencies" id="agencies">
       <div class="container">
         <div class="agencies__inner" data-animate="fade-up">
           <div class="agencies__content">
             <span class="section__label">Workforce Accommodation</span>
-            <h2 class="section__title">Partner With Woody House</h2>
+            <h2 class="section__title">Partner With Quiet Corners of Australia</h2>
             <p class="agencies__lead">We provide reliable accommodation support for healthcare recruitment agencies, locum placements, and workforce housing programs across South Australia.</p>
             <ul class="agencies__list">
               <li>
@@ -488,7 +497,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Testimonials -->
     <section class="section testimonials" id="testimonials">
@@ -509,7 +518,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <blockquote class="testimonial-card__quote">
-                "After 12-hour shifts at the hospital, coming back to Woody House feels like a genuine reset. The creekside setting and quiet rooms have made such a difference to my wellbeing."
+                "After 12-hour shifts at the hospital, coming back to Quiet Corners of Australia feels like a genuine reset. The creekside setting and quiet rooms have made such a difference to my wellbeing."
               </blockquote>
               <div class="testimonial-card__author">
                 <div class="testimonial-card__avatar" aria-hidden="true">SR</div>
@@ -528,7 +537,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               </div>
               <blockquote class="testimonial-card__quote">
-                "Our agency places aged care workers across regional SA, and Woody House has become our go-to. Affordable, clean, and the hosts genuinely understand what healthcare workers need."
+                "Our agency places aged care workers across regional SA, and Quiet Corners of Australia has become our go-to. Affordable, clean, and the hosts genuinely understand what healthcare workers need."
               </blockquote>
               <div class="testimonial-card__author">
                 <div class="testimonial-card__avatar" aria-hidden="true">MT</div>
@@ -576,12 +585,12 @@
     </section>
 
     <!-- Contact -->
-    <section class="section contact" id="contact">
+    <!-- <section class="section contact" id="contact">
       <div class="container">
         <div class="section__header section__header--center" data-animate="fade-up">
           <span class="section__label">Contact Us</span>
           <h2 class="section__title">Enquiries &amp; Availability</h2>
-          <p class="section__desc">Reach out to check room availability, ask questions, or arrange a visit to Woody House.</p>
+          <p class="section__desc">Reach out to check room availability, ask questions, or arrange a visit to Quiet Corners of Australia.</p>
         </div>
         <div class="contact__grid">
           <div class="contact__info" data-animate="fade-up">
@@ -600,7 +609,7 @@
               </div>
               <div>
                 <h3>Email</h3>
-                <a href="mailto:enquiries@woodyhouse.com.au">enquiries@woodyhouse.com.au</a>
+                <a href="mailto:enquiries@quietcorners.com.au">enquiries@quietcorners.com.au</a>
               </div>
             </div>
             <div class="contact__card">
@@ -614,7 +623,7 @@
             </div>
             <div class="contact__map">
               <iframe
-                title="Woody House location — Woodchester, South Australia"
+                title="Quiet Corners of Australia location — Woodchester, South Australia"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=138.85%2C-35.22%2C138.95%2C-35.17&layer=mapnik&marker=-35.195%2C138.901"
                 width="100%"
                 height="220"
@@ -647,18 +656,39 @@
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Booking Enquiry -->
     <section class="section booking" id="booking">
       <div class="container">
+        <div class="section__header section__header--center" data-animate="fade-up">
+          <span class="section__label">Contact Us</span>
+          <h2 class="section__title">Enquiries &amp; Availability</h2>
+          <p class="section__desc">Reach out to check room availability, ask questions, or arrange a visit to Quiet Corners of Australia.</p>
+        </div>
         <div class="booking__inner" data-animate="fade-up">
+          
           <div class="booking__content">
             <span class="section__label">Book Enquiry</span>
             <h2 class="section__title">Reserve Your Room</h2>
             <p class="booking__desc">Tell us your preferred dates, room type, and we'll confirm availability as soon as possible.</p>
+            <div class="booking__map">
+              <iframe
+                title="Quiet Corners of Australia location — Woodchester, South Australia"
+                src="https://maps.google.com/maps?q=Woodchester,+South+Australia,+Australia&amp;hl=en&amp;z=13&amp;output=embed"
+                width="100%"
+                height="280"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="booking__location">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Woodchester,+South+Australia" target="_blank" rel="noopener noreferrer">Woodchester, South Australia</a>
+            </p>
           </div>
-          <form class="booking__form" id="bookingForm" novalidate>
+         
+          <form class="booking__form" id="bookingForm" data-whatsapp="9946335425" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="bookingName">Full Name</label>
@@ -666,13 +696,13 @@
               </div>
               <div class="form-group">
                 <label for="bookingEmail">Email</label>
-                <input type="email" id="bookingEmail" name="email" required autocomplete="email">
+                <input type="email" id="bookingEmail" name="email"  autocomplete="email">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="bookingPhone">Phone</label>
-                <input type="tel" id="bookingPhone" name="phone" required autocomplete="tel">
+                <input type="tel" id="bookingPhone" name="phone"  autocomplete="tel">
               </div>
               <div class="form-group">
                 <label for="bookingRoom">Room Type</label>
@@ -716,16 +746,18 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="#home" class="logo logo--light">
-            <img src="assets/icons/logo.svg" alt="" width="40" height="28">
-            <span class="logo__text">Woody House</span>
+            <span class="logo__mark" aria-hidden="true">
+              <img src="assets/icons/qca-logo.svg" alt="" class="logo__img logo__img--footer" width="52" height="46" decoding="async" loading="lazy">
+            </span>
+            <span class="logo__text">Quiet Corners<span class="logo__sub">of Australia</span></span>
           </a>
           <p class="footer__desc">Peaceful shared accommodation for healthcare professionals in the heart of the South Australian countryside.</p>
           <p class="footer__tagline">A quiet place to stay. A better place to be.</p>
           <div class="footer__social">
-            <a href="#" aria-label="Facebook" class="footer__social-link">
+            <a href="https://www.facebook.com/" aria-label="Facebook" class="footer__social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="#" aria-label="Instagram" class="footer__social-link">
+            <a href="https://www.instagram.com/" aria-label="Instagram" class="footer__social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
           </div>
@@ -745,7 +777,7 @@
           <h4 class="footer__heading">For Professionals</h4>
           <ul>
             <li><a href="#rooms">Room Rates</a></li>
-            <li><a href="#agencies">Agency Partnerships</a></li>
+            <!-- <li><a href="#agencies">Agency Partnerships</a></li> -->
             <li><a href="#booking">Book Enquiry</a></li>
             <li><a href="#nature">Nature &amp; Recovery</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
@@ -755,14 +787,14 @@
           <h4 class="footer__heading">Get in Touch</h4>
           <address>
             <p>Woodchester, South Australia</p>
-            <p><a href="mailto:enquiries@woodyhouse.com.au">enquiries@woodyhouse.com.au</a></p>
+            <p><a href="mailto:enquiries@quietcorners.com.au">enquiries@quietcorners.com.au</a></p>
             <p><a href="tel:+61400000000">0400 000 000</a></p>
           </address>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 Woody House. All rights reserved.</p>
-        <p class="footer__brand-note">Part of Quiet Corners of Australia</p>
+        <p>&copy; 2026 Quiet Corners of Australia. All rights reserved.</p>
+        <p class="footer__brand-note">Peaceful accommodation across regional South Australia</p>
       </div>
     </div>
   </footer>
