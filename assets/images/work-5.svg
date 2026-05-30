@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="w5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3e2723"/>
+      <stop offset="100%" stop-color="#5d4037"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#w5)"/>
+  <rect x="200" y="120" width="400" height="360" rx="16" fill="#4e342e" stroke="#c9a962" stroke-width="2" opacity="0.5"/>
+  <text x="400" y="280" text-anchor="middle" fill="#c9a962" font-family="Georgia, serif" font-size="48" font-style="italic">Artisan</text>
+  <text x="400" y="340" text-anchor="middle" fill="#d7ccc8" font-family="sans-serif" font-size="16" letter-spacing="6">COFFEE CO.</text>
+  <rect x="320" y="380" width="160" height="2" fill="#c9a962" opacity="0.4"/>
+</svg>
