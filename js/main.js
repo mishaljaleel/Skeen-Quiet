@@ -1,5 +1,5 @@
 /**
- * Woody House — Main JavaScript
+ * Quiet Corners of Australia — Main JavaScript
  * Navigation, scroll animations, testimonials slider, and form handling.
  */
 

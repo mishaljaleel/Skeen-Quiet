@@ -66,6 +66,22 @@
   font-weight: 700;
   color: var(--color-text);
   transition: opacity var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.logo__text {
+  line-height: 1.15;
+  max-width: 11rem;
+}
+
+.logo__sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.58em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
 .logo:hover {
@@ -1042,7 +1058,7 @@
 .booking__desc {
   margin-top: var(--space-lg);
   font-size: var(--fs-md);
-  opacity: 0.9;
+  color: rgba(249, 247, 242, 0.95);
   line-height: 1.7;
 }
 
@@ -1056,14 +1072,57 @@
 }
 
 .booking__form .form-group label {
-  color: rgba(255, 255, 255, 0.9);
+  color: #F9F7F2;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(18, 24, 20, 0.35);
 }
 
 .booking__form .form-group input,
 .booking__form .form-group textarea,
 .booking__form .form-group select {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: transparent;
+  background: #ffffff;
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(18, 24, 20, 0.12);
+}
+
+.booking__form .form-group input::placeholder,
+.booking__form .form-group textarea::placeholder {
+  color: var(--color-text-light);
+  opacity: 1;
+}
+
+.booking__form .form-group select {
+  color: var(--color-text);
+  cursor: pointer;
+  appearance: auto;
+}
+
+.booking__form .form-group select option {
+  color: var(--color-text);
+  background: #ffffff;
+}
+
+.booking__form .form-group input[type="date"] {
+  color-scheme: light;
+  color: var(--color-text);
+}
+
+.booking__form .form-group input[type="date"]::-webkit-datetime-edit,
+.booking__form .form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+.booking__form .form-group input[type="date"]::-webkit-datetime-edit-text,
+.booking__form .form-group input[type="date"]::-webkit-datetime-edit-month-field,
+.booking__form .form-group input[type="date"]::-webkit-datetime-edit-day-field,
+.booking__form .form-group input[type="date"]::-webkit-datetime-edit-year-field {
+  color: var(--color-text);
+}
+
+.booking__form .form-group input:focus,
+.booking__form .form-group textarea:focus,
+.booking__form .form-group select:focus {
+  border-color: var(--color-sand);
+  box-shadow: 0 0 0 3px rgba(217, 194, 163, 0.35);
+  outline: none;
 }
 
 .booking__form .btn--primary {
