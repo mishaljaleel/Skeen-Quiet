@@ -19,9 +19,18 @@
   --color-dark: #2C333A;
   --color-dark-surface: #4A5646;
 
+  /* Hero over photo */
+  --color-hero-text: #F9F7F2;
+  --color-hero-text-muted: rgba(249, 247, 242, 0.92);
+  --color-hero-accent: #D9C2A3;
+  --hero-text-shadow: 0 2px 20px rgba(18, 24, 20, 0.55), 0 1px 4px rgba(0, 0, 0, 0.35);
+  --hero-text-shadow-soft: 0 1px 12px rgba(18, 24, 20, 0.45);
+
   /* Gradients */
   --gradient-accent: linear-gradient(135deg, #5E6D59 0%, #98A68D 50%, #5E6D59 100%);
-  --gradient-hero: linear-gradient(180deg, rgba(44, 51, 58, 0.55) 0%, rgba(44, 51, 58, 0.35) 50%, rgba(249, 247, 242, 0.9) 100%);
+  --gradient-hero:
+    linear-gradient(105deg, rgba(18, 24, 20, 0.78) 0%, rgba(18, 24, 20, 0.52) 42%, rgba(18, 24, 20, 0.18) 68%, transparent 100%),
+    linear-gradient(to top, rgba(249, 247, 242, 0.96) 0%, rgba(249, 247, 242, 0.4) 22%, transparent 48%);
   --gradient-nature: linear-gradient(180deg, rgba(44, 51, 58, 0.7) 0%, rgba(74, 86, 70, 0.85) 100%);
   --gradient-sage: linear-gradient(135deg, #5E6D59 0%, #4A5646 100%);
 
