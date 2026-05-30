@@ -408,6 +408,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .nature__overlay {
@@ -629,6 +630,7 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
+  min-height: 0;
 }
 
 .gallery__item--tall {
@@ -642,7 +644,9 @@
 .gallery__item img {
   width: 100%;
   height: 100%;
+  min-height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform var(--transition-slow);
 }
 
