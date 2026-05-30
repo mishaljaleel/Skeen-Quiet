@@ -9,9 +9,24 @@
     display: none;
   }
 
-  .logo__img {
-    height: clamp(42px, 5.2vw, 52px);
-    max-width: min(210px, 40vw);
+  .logo {
+    max-width: min(8.5rem, 32vw);
+  }
+
+  .logo__text {
+    font-size: clamp(0.6rem, 1.4vw, 0.7rem);
+  }
+
+  .logo__mark .logo__img {
+    width: clamp(40px, 5vw, 48px);
+  }
+
+  .header.is-scrolled .logo__mark .logo__img {
+    width: clamp(38px, 4.5vw, 46px);
+  }
+
+  .logo__mark .logo__img--footer {
+    width: clamp(38px, 4.5vw, 46px);
   }
 
   .nav__list {
@@ -116,22 +131,32 @@
 @media (max-width: 768px) {
   :root {
     --space-5xl: 4rem;
-    --header-height: 72px;
+    --header-height: 80px;
   }
 
-  .logo__img {
-    height: clamp(38px, 10vw, 46px);
-    max-width: min(185px, 54vw);
+  .logo {
+    max-width: min(7.75rem, 38vw);
+    gap: 0.125rem;
   }
 
-  .header.is-scrolled .logo__img {
-    height: clamp(36px, 9vw, 44px);
-    max-width: min(175px, 50vw);
+  .logo__text {
+    font-size: clamp(0.55rem, 2.8vw, 0.65rem);
   }
 
-  .logo__img--footer {
-    height: clamp(38px, 9vw, 48px);
-    max-width: min(195px, 78vw);
+  .logo__sub {
+    letter-spacing: 0.08em;
+  }
+
+  .logo__mark .logo__img {
+    width: clamp(36px, 9vw, 44px);
+  }
+
+  .header.is-scrolled .logo__mark .logo__img {
+    width: clamp(34px, 8vw, 42px);
+  }
+
+  .logo__mark .logo__img--footer {
+    width: clamp(36px, 8vw, 44px);
   }
 
   .hero__actions {
@@ -188,9 +213,12 @@
 }
 
 @media (max-width: 480px) {
-  .logo__img {
-    height: 40px;
-    max-width: 168px;
+  .logo__mark .logo__img {
+    width: 36px;
+  }
+
+  .logo__text {
+    font-size: 0.55rem;
   }
 
   .features__grid {
