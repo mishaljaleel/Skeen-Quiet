@@ -63,13 +63,14 @@
 
       <a href="#booking" class="btn btn--primary header__cta">Book Enquiry</a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
       </button>
     </div>
   </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
   <main>
 
@@ -365,42 +366,48 @@
           <h2 class="section__title">Explore Quiet Corners of Australia</h2>
           <p class="section__desc">From comfortable bedrooms to creekside outdoor spaces — see what makes Quiet Corners of Australia special.</p>
         </div>
-        <div class="gallery__grid">
-          <figure class="gallery__item gallery__item--tall" data-animate="fade-up">
-            <img src="assets/images/qca-frontview.jpeg" alt="Comfortable furnished bedroom at Quiet Corners of Australia" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Bedrooms</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="50">
-            <img src="assets/images/qca-kayakin.jpeg" alt="Fully equipped shared kitchen" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Shared Kitchen</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="100">
-            <img src="assets/images/qca-lakesidebench.jpeg" alt="Comfortable shared lounge area" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Lounge</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--wide" data-animate="fade-up" data-delay="150">
-            <img src="assets/images/primary.jpg" alt="Peaceful creekside outdoor area at Quiet Corners of Australia" width="800" height="600" loading="lazy" decoding="async">
-            <figcaption class="gallery__caption">Creekside Area</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="200">
-            <img src="assets/images/qca-pinetrees.jpeg" alt="Pine grove with garden swing" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Pine Grove</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="250">
-            <img src="assets/images/qca-openwalk.jpeg" alt="Outdoor BBQ setup" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">BBQ Setup</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="300">
-            <img src="assets/images/qca-walkarea.jpeg" alt="Outdoor seating area" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Outdoor Seating</figcaption>
-          </figure>
-          <figure class="gallery__item" data-animate="fade-up" data-delay="350">
-            <img src="assets/images/qca-openwalk.jpeg" alt="Natural Australian bush surroundings" width="600" height="450" loading="lazy">
-            <figcaption class="gallery__caption">Nature Surroundings</figcaption>
-          </figure>
+        <div class="gallery__panel" id="galleryCategories" data-animate="fade-up">
+          <div class="gallery__categories" id="galleryCategoriesGrid" role="list" aria-label="Photo categories"></div>
+        </div>
+        <div class="gallery__panel gallery__album" id="galleryAlbum" hidden>
+          <div class="gallery__album-header">
+            <button type="button" class="gallery__back" id="galleryAlbumBack" aria-label="Back to all categories">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              All categories
+            </button>
+            <div class="gallery__album-heading">
+              <h3 class="gallery__album-title" id="galleryAlbumTitle"></h3>
+              <p class="gallery__album-count" id="galleryAlbumCount"></p>
+            </div>
+          </div>
+          <div class="gallery__album-grid" id="galleryAlbumGrid" role="list"></div>
         </div>
       </div>
     </section>
+
+    <!-- Gallery lightbox -->
+    <div class="gallery-lightbox" id="galleryLightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+      <div class="gallery-lightbox__backdrop" data-lightbox-close></div>
+      <button type="button" class="gallery-lightbox__close" id="galleryLightboxClose" aria-label="Close gallery">&times;</button>
+      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="galleryLightboxPrev" aria-label="Previous image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" id="galleryLightboxNext" aria-label="Next image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="gallery-lightbox__stage" id="galleryLightboxStage">
+        <img class="gallery-lightbox__img" id="galleryLightboxImg" alt="">
+      </div>
+      <div class="gallery-lightbox__footer">
+        <button type="button" class="gallery-lightbox__zoom-btn" id="galleryLightboxZoomOut" aria-label="Zoom out">&minus;</button>
+        <div class="gallery-lightbox__meta">
+          <p class="gallery-lightbox__category" id="galleryLightboxCategory"></p>
+          <p class="gallery-lightbox__caption" id="galleryLightboxCaption"></p>
+          <p class="gallery-lightbox__counter" id="galleryLightboxCounter"></p>
+        </div>
+        <button type="button" class="gallery-lightbox__zoom-btn" id="galleryLightboxZoomIn" aria-label="Zoom in">+</button>
+      </div>
+    </div>
 
     <!-- Agencies -->
     <section class="section agencies" id="agencies">

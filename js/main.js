@@ -10,7 +10,19 @@
   var header = document.getElementById('header');
   var nav = document.getElementById('nav');
   var navToggle = document.getElementById('navToggle');
+  var navBackdrop = document.getElementById('navBackdrop');
   var navLinks = document.querySelectorAll('.nav__link');
+  var MOBILE_NAV_BREAKPOINT = 1100;
+  var scrollPosition = 0;
+
+  function syncHeaderHeight() {
+    if (!header) return;
+    document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+  }
+
+  function isMobileNav() {
+    return window.innerWidth <= MOBILE_NAV_BREAKPOINT;
+  }
 
   function handleScroll() {
     if (header) {
@@ -18,33 +30,91 @@
     }
   }
 
-  function toggleNav() {
-    var isOpen = nav.classList.toggle('is-open');
+  function lockBodyScroll() {
+    scrollPosition = window.scrollY;
+    document.body.classList.add('nav-open');
+    document.body.style.top = '-' + scrollPosition + 'px';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function unlockBodyScroll() {
+    if (!document.body.classList.contains('nav-open')) return;
+    document.body.classList.remove('nav-open');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPosition);
+  }
+
+  function setNavOpen(isOpen) {
+    if (!nav || !navToggle) return;
+
+    nav.classList.toggle('is-open', isOpen);
     navToggle.classList.toggle('is-active', isOpen);
-    navToggle.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    if (navBackdrop) {
+      navBackdrop.classList.toggle('is-visible', isOpen);
+      navBackdrop.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    }
+
+    if (isOpen && isMobileNav()) {
+      lockBodyScroll();
+    } else {
+      unlockBodyScroll();
+    }
+  }
+
+  function toggleNav() {
+    if (!nav) return;
+    setNavOpen(!nav.classList.contains('is-open'));
   }
 
   function closeNav() {
-    nav.classList.remove('is-open');
-    navToggle.classList.remove('is-active');
-    navToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    setNavOpen(false);
   }
 
   if (navToggle) {
-    navToggle.addEventListener('click', toggleNav);
+    navToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleNav();
+    });
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', closeNav);
   }
 
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
-      closeNav();
+      if (isMobileNav()) {
+        closeNav();
+      }
       navLinks.forEach(function (l) { l.classList.remove('active'); });
       link.classList.add('active');
     });
   });
 
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav && nav.classList.contains('is-open')) {
+      closeNav();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    syncHeaderHeight();
+    if (!isMobileNav()) {
+      closeNav();
+    }
+  });
+
   window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('load', syncHeaderHeight);
+  syncHeaderHeight();
   handleScroll();
 
   /* ---------- Scroll Animations ---------- */
@@ -272,6 +342,457 @@
     lines.push('', 'Thank you.');
 
     return lines.join('\n');
+  }
+
+  /* ---------- Gallery (categories + lightbox) ---------- */
+  var galleryCategoriesGrid = document.getElementById('galleryCategoriesGrid');
+  var galleryCategoriesPanel = document.getElementById('galleryCategories');
+  var galleryAlbum = document.getElementById('galleryAlbum');
+  var galleryAlbumGrid = document.getElementById('galleryAlbumGrid');
+  var galleryAlbumTitle = document.getElementById('galleryAlbumTitle');
+  var galleryAlbumCount = document.getElementById('galleryAlbumCount');
+  var galleryAlbumBack = document.getElementById('galleryAlbumBack');
+  var galleryLightbox = document.getElementById('galleryLightbox');
+  var galleryLightboxImg = document.getElementById('galleryLightboxImg');
+  var galleryLightboxCaption = document.getElementById('galleryLightboxCaption');
+  var galleryLightboxCategory = document.getElementById('galleryLightboxCategory');
+  var galleryLightboxCounter = document.getElementById('galleryLightboxCounter');
+  var galleryLightboxStage = document.getElementById('galleryLightboxStage');
+  var galleryLightboxClose = document.getElementById('galleryLightboxClose');
+  var galleryLightboxPrev = document.getElementById('galleryLightboxPrev');
+  var galleryLightboxNext = document.getElementById('galleryLightboxNext');
+  var galleryLightboxZoomIn = document.getElementById('galleryLightboxZoomIn');
+  var galleryLightboxZoomOut = document.getElementById('galleryLightboxZoomOut');
+
+  var galleryData = [
+    {
+      id: 'bedrooms',
+      title: 'Bedrooms',
+      cover: 'assets/images/qca-frontview.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-frontview.jpeg',
+          alt: 'Comfortable furnished bedroom at Quiet Corners of Australia',
+          caption: 'Furnished bedroom'
+        },
+        {
+          src: 'assets/images/primary.jpeg',
+          alt: 'Front view of Quiet Corners accommodation',
+          caption: 'Property front view'
+        },
+        {
+          src: 'assets/images/primary.jpg',
+          alt: 'Quiet room with natural light',
+          caption: 'Bright private room'
+        }
+      ]
+    },
+    {
+      id: 'kitchen',
+      title: 'Shared Kitchen',
+      cover: 'assets/images/qca-frontview.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-frontview.jpeg',
+          alt: 'Shared kitchen and dining area',
+          caption: 'Shared kitchen area'
+        },
+        {
+          src: 'assets/images/qca-lakesidebench.jpeg',
+          alt: 'Dining and meal prep space',
+          caption: 'Dining space'
+        }
+      ]
+    },
+    {
+      id: 'lounge',
+      title: 'Lounge',
+      cover: 'assets/images/qca-lakesidebench.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-lakesidebench.jpeg',
+          alt: 'Comfortable shared lounge area',
+          caption: 'Shared lounge'
+        },
+        {
+          src: 'assets/images/qca-walkarea.jpeg',
+          alt: 'Relaxed seating area outdoors',
+          caption: 'Outdoor lounge seating'
+        }
+      ]
+    },
+    {
+      id: 'creekside',
+      title: 'Creekside Area',
+      cover: 'assets/images/primary.jpg',
+      photos: [
+        {
+          src: 'assets/images/primary.jpg',
+          alt: 'Peaceful creekside outdoor area at Quiet Corners of Australia',
+          caption: 'Creekside outlook'
+        },
+        {
+          src: 'assets/images/qca-walkarea.jpeg',
+          alt: 'Walking path beside the creek',
+          caption: 'Creekside walk'
+        },
+        {
+          src: 'assets/images/qca-kayakin.jpeg',
+          alt: 'Kayaking on the creek',
+          caption: 'Kayaking on the creek'
+        }
+      ]
+    },
+    {
+      id: 'pine-grove',
+      title: 'Pine Grove',
+      cover: 'assets/images/qca-pinetrees.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-pinetrees.jpeg',
+          alt: 'Pine grove with garden swing',
+          caption: 'Pine grove & swing'
+        },
+        {
+          src: 'assets/images/qca-openwalk.jpeg',
+          alt: 'Walk through the pine grove',
+          caption: 'Pine grove walk'
+        }
+      ]
+    },
+    {
+      id: 'bbq',
+      title: 'BBQ Setup',
+      cover: 'assets/images/qca-openwalk.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-openwalk.jpeg',
+          alt: 'Outdoor BBQ setup',
+          caption: 'BBQ area'
+        },
+        {
+          src: 'assets/images/qca-walkarea.jpeg',
+          alt: 'Outdoor cooking and dining space',
+          caption: 'Outdoor dining'
+        }
+      ]
+    },
+    {
+      id: 'outdoor-seating',
+      title: 'Outdoor Seating',
+      cover: 'assets/images/qca-lakesidebench.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-lakesidebench.jpeg',
+          alt: 'Lakeside bench seating',
+          caption: 'Lakeside bench'
+        },
+        {
+          src: 'assets/images/qca-walkarea.jpeg',
+          alt: 'Outdoor seating area',
+          caption: 'Garden seating'
+        }
+      ]
+    },
+    {
+      id: 'nature',
+      title: 'Nature Surroundings',
+      cover: 'assets/images/qca-kayakin.jpeg',
+      photos: [
+        {
+          src: 'assets/images/qca-kayakin.jpeg',
+          alt: 'Natural creek and bush surroundings',
+          caption: 'Creek & bushland'
+        },
+        {
+          src: 'assets/images/qca-pinetrees.jpeg',
+          alt: 'Tall pine trees on the property',
+          caption: 'Pine tree canopy'
+        },
+        {
+          src: 'assets/images/qca-openwalk.jpeg',
+          alt: 'Natural Australian bush surroundings',
+          caption: 'Bush walking trails'
+        }
+      ]
+    }
+  ];
+
+  if (galleryCategoriesGrid && galleryLightbox && galleryLightboxImg && galleryLightboxStage) {
+    var activeCategory = null;
+    var activePhotos = [];
+    var galleryIndex = 0;
+    var galleryZoom = 1;
+    var galleryPanX = 0;
+    var galleryPanY = 0;
+    var galleryLightboxScrollY = 0;
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragStartY = 0;
+    var panStartX = 0;
+    var panStartY = 0;
+    var MIN_ZOOM = 1;
+    var MAX_ZOOM = 3;
+    var ZOOM_STEP = 0.25;
+
+    function photoLabel(count) {
+      return count === 1 ? '1 photo' : count + ' photos';
+    }
+
+    function renderCategoryCards() {
+      galleryCategoriesGrid.innerHTML = galleryData.map(function (category) {
+        var count = category.photos.length;
+        return (
+          '<button type="button" class="gallery__category" data-category-id="' + category.id + '" aria-label="View ' + category.title + ' — ' + photoLabel(count) + '">' +
+            '<span class="gallery__category-media">' +
+              '<img src="' + category.cover + '" alt="" width="600" height="450" loading="lazy">' +
+            '</span>' +
+            '<span class="gallery__category-body">' +
+              '<span class="gallery__category-title">' + category.title + '</span>' +
+              '<span class="gallery__category-count">' + photoLabel(count) + '</span>' +
+            '</span>' +
+          '</button>'
+        );
+      }).join('');
+
+      galleryCategoriesGrid.querySelectorAll('.gallery__category').forEach(function (button) {
+        button.addEventListener('click', function () {
+          openCategoryAlbum(button.getAttribute('data-category-id'));
+        });
+      });
+    }
+
+    function renderAlbumPhotos(category) {
+      galleryAlbumGrid.innerHTML = category.photos.map(function (photo, index) {
+        return (
+          '<figure class="gallery__item" data-photo-index="' + index + '" tabindex="0" role="button" aria-label="View ' + photo.caption + '">' +
+            '<img src="' + photo.src + '" alt="' + photo.alt + '" width="600" height="450" loading="lazy">' +
+            '<figcaption class="gallery__caption">' + photo.caption + '</figcaption>' +
+          '</figure>'
+        );
+      }).join('');
+
+      galleryAlbumGrid.querySelectorAll('.gallery__item').forEach(function (item) {
+        var index = parseInt(item.getAttribute('data-photo-index'), 10);
+
+        item.addEventListener('click', function () {
+          openGallery(index);
+        });
+
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openGallery(index);
+          }
+        });
+      });
+    }
+
+    function openCategoryAlbum(categoryId) {
+      var category = galleryData.find(function (entry) {
+        return entry.id === categoryId;
+      });
+
+      if (!category) return;
+
+      activeCategory = category;
+      activePhotos = category.photos.slice();
+      galleryAlbumTitle.textContent = category.title;
+      galleryAlbumCount.textContent = photoLabel(category.photos.length);
+      renderAlbumPhotos(category);
+
+      galleryCategoriesPanel.hidden = true;
+      galleryAlbum.hidden = false;
+      galleryAlbumBack.focus();
+
+      var headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 80;
+      var top = galleryAlbum.getBoundingClientRect().top + window.scrollY - headerOffset - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }
+
+    function closeCategoryAlbum() {
+      galleryAlbum.hidden = true;
+      galleryCategoriesPanel.hidden = false;
+      galleryAlbumGrid.innerHTML = '';
+      activeCategory = null;
+      activePhotos = [];
+    }
+
+    if (galleryAlbumBack) {
+      galleryAlbumBack.addEventListener('click', closeCategoryAlbum);
+    }
+
+    function applyGalleryTransform() {
+      galleryLightboxImg.style.setProperty('--zoom', galleryZoom);
+      galleryLightboxImg.style.setProperty('--pan-x', galleryPanX + 'px');
+      galleryLightboxImg.style.setProperty('--pan-y', galleryPanY + 'px');
+    }
+
+    function resetGalleryView() {
+      galleryZoom = 1;
+      galleryPanX = 0;
+      galleryPanY = 0;
+      applyGalleryTransform();
+    }
+
+    function updateLightboxMeta() {
+      var photo = activePhotos[galleryIndex];
+      if (!photo || !activeCategory) return;
+
+      galleryLightboxCategory.textContent = activeCategory.title;
+      galleryLightboxCaption.textContent = photo.caption;
+      galleryLightboxCounter.textContent = 'Photo ' + (galleryIndex + 1) + ' of ' + activePhotos.length;
+    }
+
+    function showGalleryImage(index) {
+      if (!activePhotos.length) return;
+
+      galleryIndex = (index + activePhotos.length) % activePhotos.length;
+      var photo = activePhotos[galleryIndex];
+
+      galleryLightboxImg.src = photo.src;
+      galleryLightboxImg.alt = photo.alt || '';
+      updateLightboxMeta();
+      resetGalleryView();
+    }
+
+    function openGallery(index) {
+      if (!activePhotos.length) return;
+
+      showGalleryImage(index);
+      galleryLightboxScrollY = window.scrollY;
+      galleryLightbox.hidden = false;
+      galleryLightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + galleryLightboxScrollY + 'px';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      galleryLightboxClose.focus();
+    }
+
+    function closeGallery() {
+      galleryLightbox.hidden = true;
+      galleryLightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, galleryLightboxScrollY);
+      resetGalleryView();
+      galleryLightboxImg.removeAttribute('src');
+    }
+
+    function setGalleryZoom(nextZoom) {
+      galleryZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, nextZoom));
+      if (galleryZoom === 1) {
+        galleryPanX = 0;
+        galleryPanY = 0;
+      }
+      applyGalleryTransform();
+    }
+
+    renderCategoryCards();
+
+    if (galleryLightboxClose) {
+      galleryLightboxClose.addEventListener('click', closeGallery);
+    }
+
+    galleryLightbox.querySelectorAll('[data-lightbox-close]').forEach(function (el) {
+      el.addEventListener('click', closeGallery);
+    });
+
+    if (galleryLightboxPrev) {
+      galleryLightboxPrev.addEventListener('click', function (e) {
+        e.stopPropagation();
+        showGalleryImage(galleryIndex - 1);
+      });
+    }
+
+    if (galleryLightboxNext) {
+      galleryLightboxNext.addEventListener('click', function (e) {
+        e.stopPropagation();
+        showGalleryImage(galleryIndex + 1);
+      });
+    }
+
+    if (galleryLightboxZoomIn) {
+      galleryLightboxZoomIn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setGalleryZoom(galleryZoom + ZOOM_STEP);
+      });
+    }
+
+    if (galleryLightboxZoomOut) {
+      galleryLightboxZoomOut.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setGalleryZoom(galleryZoom - ZOOM_STEP);
+      });
+    }
+
+    galleryLightboxStage.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      setGalleryZoom(galleryZoom + (e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP));
+    }, { passive: false });
+
+    galleryLightboxStage.addEventListener('dblclick', function (e) {
+      e.preventDefault();
+      setGalleryZoom(galleryZoom > 1 ? 1 : 2);
+    });
+
+    galleryLightboxStage.addEventListener('pointerdown', function (e) {
+      if (galleryZoom <= 1) return;
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      panStartX = galleryPanX;
+      panStartY = galleryPanY;
+      galleryLightboxStage.classList.add('is-dragging');
+      galleryLightboxStage.setPointerCapture(e.pointerId);
+    });
+
+    galleryLightboxStage.addEventListener('pointermove', function (e) {
+      if (!isDragging) return;
+      galleryPanX = panStartX + (e.clientX - dragStartX);
+      galleryPanY = panStartY + (e.clientY - dragStartY);
+      applyGalleryTransform();
+    });
+
+    function endGalleryDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      galleryLightboxStage.classList.remove('is-dragging');
+      if (e && e.pointerId !== undefined) {
+        try {
+          galleryLightboxStage.releasePointerCapture(e.pointerId);
+        } catch (err) {
+          /* ignore */
+        }
+      }
+    }
+
+    galleryLightboxStage.addEventListener('pointerup', endGalleryDrag);
+    galleryLightboxStage.addEventListener('pointercancel', endGalleryDrag);
+
+    document.addEventListener('keydown', function (e) {
+      if (!galleryAlbum.hidden && e.key === 'Escape' && galleryLightbox.hidden) {
+        closeCategoryAlbum();
+        return;
+      }
+
+      if (galleryLightbox.hidden) return;
+
+      if (e.key === 'Escape') {
+        closeGallery();
+      } else if (e.key === 'ArrowLeft') {
+        showGalleryImage(galleryIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        showGalleryImage(galleryIndex + 1);
+      } else if (e.key === '+' || e.key === '=') {
+        setGalleryZoom(galleryZoom + ZOOM_STEP);
+      } else if (e.key === '-') {
+        setGalleryZoom(galleryZoom - ZOOM_STEP);
+      }
+    });
   }
 
   /* ---------- Smooth anchor offset for fixed header ---------- */
