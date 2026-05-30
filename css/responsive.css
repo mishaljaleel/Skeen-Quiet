@@ -9,6 +9,11 @@
     display: none;
   }
 
+  .logo__img {
+    height: clamp(42px, 5.2vw, 52px);
+    max-width: min(210px, 40vw);
+  }
+
   .nav__list {
     gap: var(--space-md);
   }
@@ -111,7 +116,22 @@
 @media (max-width: 768px) {
   :root {
     --space-5xl: 4rem;
-    --header-height: 70px;
+    --header-height: 72px;
+  }
+
+  .logo__img {
+    height: clamp(38px, 10vw, 46px);
+    max-width: min(185px, 54vw);
+  }
+
+  .header.is-scrolled .logo__img {
+    height: clamp(36px, 9vw, 44px);
+    max-width: min(175px, 50vw);
+  }
+
+  .logo__img--footer {
+    height: clamp(38px, 9vw, 48px);
+    max-width: min(195px, 78vw);
   }
 
   .hero__actions {
@@ -168,6 +188,11 @@
 }
 
 @media (max-width: 480px) {
+  .logo__img {
+    height: 40px;
+    max-width: 168px;
+  }
+
   .features__grid {
     grid-template-columns: 1fr;
   }
