@@ -11,6 +11,26 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_AU">
   <title>Woody House | Peaceful Accommodation for Healthcare Professionals</title>
+  <script>
+    (function () {
+      var k = 'woodyhouse-theme';
+      var m = 'woodyhouse-theme-mode';
+      var t = localStorage.getItem(k);
+      var mode = localStorage.getItem(m);
+      if (t !== 'light' && t !== 'dark') {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        else if (window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        else {
+          var h = new Date().getHours();
+          t = (h >= 6 && h < 18) ? 'light' : 'dark';
+        }
+      } else if (mode === 'auto') {
+        var h = new Date().getHours();      
+        t = (h >= 6 && h < 18) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +40,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/theme.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,7 +80,22 @@
         </ul>
       </nav>
 
-      <a href="#booking" class="btn btn--primary header__cta">Book Enquiry</a>
+      <div class="header__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to night theme" aria-pressed="false">
+          <span class="theme-toggle__track">
+            <span class="theme-toggle__thumb">
+              <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </span>
+        </button>
+        <a href="#booking" class="btn btn--primary header__cta">Book Enquiry</a>
+      </div>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="nav-toggle__bar"></span>
@@ -731,6 +767,7 @@
     </div>
   </footer>
 
+  <script src="js/theme.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
