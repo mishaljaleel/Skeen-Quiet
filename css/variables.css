@@ -30,8 +30,8 @@
   /* Gradients */
   --gradient-accent: linear-gradient(135deg, #5E6D59 0%, #98A68D 50%, #5E6D59 100%);
   --gradient-hero:
-    linear-gradient(105deg, rgba(18, 24, 20, 0.78) 0%, rgba(18, 24, 20, 0.52) 42%, rgba(18, 24, 20, 0.18) 68%, transparent 100%),
-    linear-gradient(to top, rgba(249, 247, 242, 0.96) 0%, rgba(249, 247, 242, 0.4) 22%, transparent 48%);
+    linear-gradient(105deg, rgba(18, 24, 20, 0.78) 0%, rgba(18, 24, 20, 0.52) 42%, rgba(18, 24, 20, 0.16) 68%, transparent 100%),
+    linear-gradient(to top, rgba(18, 24, 20, 0.42) 0%, rgba(18, 24, 20, 0.12) 28%, transparent 52%);
   --gradient-nature: linear-gradient(180deg, rgba(44, 51, 58, 0.7) 0%, rgba(74, 86, 70, 0.85) 100%);
   --gradient-sage: linear-gradient(135deg, #5E6D59 0%, #4A5646 100%);
 
@@ -126,7 +126,9 @@
   --color-glow-strong: transparent;
 
   --gradient-accent: linear-gradient(135deg, #5E6D59 0%, #98A68D 50%, #5E6D59 100%);
-  --gradient-hero: linear-gradient(180deg, rgba(44, 51, 58, 0.55) 0%, rgba(44, 51, 58, 0.35) 50%, rgba(249, 247, 242, 0.92) 100%);
+  --gradient-hero:
+    linear-gradient(105deg, rgba(44, 51, 58, 0.58) 0%, rgba(44, 51, 58, 0.3) 45%, transparent 75%),
+    linear-gradient(to top, rgba(44, 51, 58, 0.32) 0%, rgba(44, 51, 58, 0.08) 30%, transparent 50%);
   --gradient-nature: linear-gradient(180deg, rgba(44, 51, 58, 0.7) 0%, rgba(74, 86, 70, 0.85) 100%);
   --gradient-sage: linear-gradient(135deg, #5E6D59 0%, #4A5646 100%);
   --gradient-booking: linear-gradient(135deg, #5E6D59 0%, #4A5646 100%);
@@ -186,7 +188,9 @@
   --color-glow-strong: rgba(224, 160, 102, 0.12);
 
   --gradient-accent: linear-gradient(135deg, #5E6D59 0%, #7A9A6E 50%, #5E6D59 100%);
-  --gradient-hero: linear-gradient(180deg, rgba(8, 12, 10, 0.75) 0%, rgba(18, 24, 20, 0.55) 45%, rgba(18, 24, 20, 0.95) 100%);
+  --gradient-hero:
+    linear-gradient(105deg, rgba(8, 12, 10, 0.85) 0%, rgba(18, 24, 20, 0.55) 42%, transparent 72%),
+    linear-gradient(to top, rgba(8, 12, 10, 0.58) 0%, rgba(8, 12, 10, 0.15) 32%, transparent 54%);
   --gradient-nature: linear-gradient(180deg, rgba(8, 12, 10, 0.85) 0%, rgba(26, 34, 28, 0.92) 100%);
   --gradient-sage: linear-gradient(135deg, #1A221C 0%, #121814 100%);
   --gradient-booking: linear-gradient(145deg, #1A221C 0%, #121814 50%, #171F19 100%);

@@ -241,6 +241,16 @@
   z-index: 0;
 }
 
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(18, 24, 20, 0.35) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .hero__bg-image {
   width: 100%;
   height: 100%;
@@ -347,7 +357,7 @@
 
 .hero__scroll {
   position: absolute;
-  bottom: var(--space-2xl);
+  bottom: clamp(5.5rem, 11vw, 7.5rem);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -358,9 +368,29 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-text-muted);
-  z-index: 1;
+  color: var(--color-hero-text);
+  text-shadow: var(--hero-text-shadow-soft);
+  z-index: 3;
   animation: bounce 2s infinite;
+}
+
+.hero__transition {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  line-height: 0;
+  color: var(--color-surface);
+  pointer-events: none;
+}
+
+.hero__transition-shape {
+  display: block;
+  width: 100%;
+  height: clamp(56px, 9vw, 100px);
+  fill: currentColor;
+  filter: drop-shadow(0 -4px 12px rgba(18, 24, 20, 0.08));
 }
 
 @keyframes bounce {
@@ -371,6 +401,9 @@
 /* ===== About ===== */
 .about {
   background: var(--color-surface);
+  position: relative;
+  z-index: 1;
+  margin-top: -1px;
 }
 
 .about__grid {
@@ -1499,6 +1532,15 @@
   outline: none;
 }
 
+.booking__form .form-error {
+  color: rgba(255, 235, 235, 0.98);
+  background: rgba(192, 57, 43, 0.16);
+  border: 1px solid rgba(255, 235, 235, 0.22);
+  padding: 0.45rem 0.65rem;
+  border-radius: 10px;
+  text-shadow: 0 1px 10px rgba(18, 24, 20, 0.35);
+}
+
 .booking__form .btn--primary {
   background: var(--color-secondary);
   color: var(--color-on-dark);
@@ -1508,6 +1550,47 @@
 .booking__form .btn--primary:hover {
   background: var(--color-secondary-hover);
   border-color: var(--color-secondary-hover);
+}
+
+.booking__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.booking__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  border: none;
+  font-weight: 600;
+}
+
+.btn--whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  border: 1px solid #25d366;
+}
+
+.btn--whatsapp:hover {
+  background: #1fb855;
+  border-color: #1fb855;
+  color: #ffffff;
+}
+
+.btn--messenger {
+  background: #0084ff;
+  color: #ffffff;
+  border: 1px solid #0084ff;
+}
+
+.btn--messenger:hover {
+  background: #0073e6;
+  border-color: #0073e6;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .booking {

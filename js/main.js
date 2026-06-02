@@ -232,17 +232,82 @@
   function validateForm(form, fields) {
     var valid = true;
 
-    fields.forEach(function (field) {
+    function clearFieldError(field) {
       field.classList.remove('is-error');
-      if (!field.value.trim()) {
-        field.classList.add('is-error');
+      field.removeAttribute('aria-invalid');
+
+      var describedBy = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+      var errorId = field.id ? field.id + '-error' : '';
+
+      if (errorId) {
+        var existing = form.querySelector('#' + CSS.escape(errorId));
+        if (existing) existing.remove();
+        describedBy = describedBy.filter(function (id) { return id !== errorId; });
+      }
+
+      if (describedBy.length) field.setAttribute('aria-describedby', describedBy.join(' '));
+      else field.removeAttribute('aria-describedby');
+    }
+
+    function setFieldError(field, message) {
+      var errorId = field.id ? field.id + '-error' : '';
+      field.classList.add('is-error');
+      field.setAttribute('aria-invalid', 'true');
+
+      if (!errorId) return;
+
+      var existing = form.querySelector('#' + CSS.escape(errorId));
+      if (existing) existing.remove();
+
+      var p = document.createElement('p');
+      p.className = 'form-error';
+      p.id = errorId;
+      p.textContent = message;
+      field.insertAdjacentElement('afterend', p);
+
+      var describedBy = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+      if (describedBy.indexOf(errorId) === -1) describedBy.push(errorId);
+      field.setAttribute('aria-describedby', describedBy.join(' '));
+    }
+
+    fields.forEach(function (field) {
+      clearFieldError(field);
+
+      var value = field.value.trim();
+      if (!value) {
+        setFieldError(field, 'This field is required.');
         valid = false;
+        return;
+      }
+
+      if (field.name === 'name') {
+        if (value.length < 2 || value.length > 80) {
+          setFieldError(field, 'Please enter your full name (2–80 characters).');
+          valid = false;
+          return;
+        }
+        if (!/^[A-Za-z][A-Za-z\s.'-]*$/.test(value)) {
+          setFieldError(field, 'Name can contain letters and spaces only.');
+          valid = false;
+          return;
+        }
+      }
+
+      if (field.name === 'phone') {
+        var digits = value.replace(/\D/g, '');
+        var isAuMobile = (digits.length === 10 && digits.indexOf('04') === 0) || (digits.length === 11 && digits.indexOf('614') === 0);
+        if (!isAuMobile) {
+          setFieldError(field, 'Enter an Australian mobile number (e.g. 04xxxxxxxx).');
+          valid = false;
+          return;
+        }
       }
     });
 
     var emailField = form.querySelector('input[type="email"]');
     if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
-      emailField.classList.add('is-error');
+      clearFieldError(emailField);
+      setFieldError(emailField, 'Please enter a valid email address.');
       valid = false;
     }
 
@@ -275,31 +340,113 @@
   }
 
   var bookingForm = document.getElementById('bookingForm');
+  var bookingWhatsAppBtn = document.getElementById('bookingWhatsAppBtn');
+  var bookingMessengerBtn = document.getElementById('bookingMessengerBtn');
+
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        document.execCommand('copy');
+        resolve();
+      } catch (err) {
+        reject(err);
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    });
+  }
+
+  function resetBookingButton(btn, originalText) {
+    var label = btn.querySelector('.booking__btn-label');
+    setTimeout(function () {
+      if (label) {
+        label.textContent = originalText;
+      } else {
+        btn.textContent = originalText;
+      }
+      btn.disabled = false;
+    }, 3500);
+  }
+
+  function setBookingButtonLabel(btn, text) {
+    var label = btn.querySelector('.booking__btn-label');
+    if (label) {
+      label.textContent = text;
+    } else {
+      btn.textContent = text;
+    }
+  }
+
+  function handleBookingChannel(form, channel, btn) {
+    var requiredFields = form.querySelectorAll('[required]');
+    if (!validateForm(form, requiredFields)) return;
+
+    var message = buildBookingMessage(form);
+    var label = btn.querySelector('.booking__btn-label');
+    var originalText = label ? label.textContent : btn.textContent;
+    btn.disabled = true;
+
+    if (channel === 'whatsapp') {
+      var whatsappNumber = (form.dataset.whatsapp || '9946335425').replace(/\D/g, '');
+      var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      setBookingButtonLabel(btn, 'Opening WhatsApp…');
+      form.reset();
+      resetBookingButton(btn, originalText);
+      return;
+    }
+
+    var messengerId = (form.dataset.messenger || '').trim();
+    if (!messengerId) {
+      btn.disabled = false;
+      window.alert('Messenger is not configured yet. Please contact us via WhatsApp or email.');
+      return;
+    }
+
+    setBookingButtonLabel(btn, 'Copying message…');
+
+    copyTextToClipboard(message).then(function () {
+      var messengerUrl = 'https://m.me/' + encodeURIComponent(messengerId.replace(/^@/, ''));
+      window.open(messengerUrl, '_blank', 'noopener,noreferrer');
+      setBookingButtonLabel(btn, 'Opening Messenger…');
+      form.reset();
+      resetBookingButton(btn, originalText);
+    }).catch(function () {
+      var messengerUrl = 'https://m.me/' + encodeURIComponent(messengerId.replace(/^@/, ''));
+      window.open(messengerUrl, '_blank', 'noopener,noreferrer');
+      setBookingButtonLabel(btn, 'Opening Messenger…');
+      form.reset();
+      resetBookingButton(btn, originalText);
+    });
+  }
+
+  if (bookingForm && bookingWhatsAppBtn) {
+    bookingWhatsAppBtn.addEventListener('click', function () {
+      handleBookingChannel(bookingForm, 'whatsapp', bookingWhatsAppBtn);
+    });
+  }
+
+  if (bookingForm && bookingMessengerBtn) {
+    bookingMessengerBtn.addEventListener('click', function () {
+      handleBookingChannel(bookingForm, 'messenger', bookingMessengerBtn);
+    });
+  }
+
   if (bookingForm) {
     bookingForm.addEventListener('submit', function (e) {
-      console.log('Booking form submitted');
-      debugger;
       e.preventDefault();
-
-      var requiredFields = bookingForm.querySelectorAll('[required]');
-      //if (!validateForm(bookingForm, requiredFields)) return;
-
-      var whatsappNumber = (bookingForm.dataset.whatsapp || '9946335425').replace(/\D/g, '');
-      var message = buildBookingWhatsAppMessage(bookingForm);
-      var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
-
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-
-      var btn = bookingForm.querySelector('button[type="submit"]');
-      var originalText = btn.textContent;
-      btn.textContent = 'Opening WhatsApp…';
-      btn.disabled = true;
-      bookingForm.reset();
-
-      setTimeout(function () {
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }, 3500);
     });
   }
 
@@ -315,7 +462,7 @@
     return parts[2] + '-' + parts[1] + '-' + parts[0];
   }
 
-  function buildBookingWhatsAppMessage(form) {
+  function buildBookingMessage(form) {
     var name = form.querySelector('[name="name"]').value.trim();
     var email = form.querySelector('[name="email"]').value.trim();
     var phone = form.querySelector('[name="phone"]').value.trim();

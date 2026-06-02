@@ -82,6 +82,10 @@
     grid-template-columns: 1fr;
   }
 
+  .booking__actions {
+    grid-template-columns: 1fr;
+  }
+
   .footer__grid {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);

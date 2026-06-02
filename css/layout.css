@@ -220,3 +220,15 @@ body {
 .form-group select.is-error {
   border-color: #c0392b;
 }
+
+.form-error {
+  margin-top: 0.45rem;
+  font-size: var(--fs-sm);
+  color: #c0392b;
+  line-height: 1.35;
+}
+
+.field-required {
+  color: var(--color-secondary);
+  font-weight: 700;
+}

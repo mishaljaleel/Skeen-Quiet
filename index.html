@@ -135,6 +135,11 @@
           <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
+      <div class="hero__transition" aria-hidden="true">
+        <svg class="hero__transition-shape" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,72 C320,108 520,28 720,56 C920,84 1120,40 1440,76 L1440,100 L0,100 Z"/>
+        </svg>
+      </div>
     </section>
 
     <!-- About -->
@@ -688,10 +693,10 @@
             </p>
           </div>
          
-          <form class="booking__form" id="bookingForm" data-whatsapp="9946335425" novalidate>
+          <form class="booking__form" id="bookingForm" data-whatsapp="9946335425" data-messenger="quietcornersofaustralia" novalidate>
             <div class="form-row">
               <div class="form-group">
-                <label for="bookingName">Full Name</label>
+                <label for="bookingName">Full Name <span class="field-required" aria-hidden="true">*</span></label>
                 <input type="text" id="bookingName" name="name" required autocomplete="name">
               </div>
               <div class="form-group">
@@ -701,12 +706,12 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="bookingPhone">Phone</label>
-                <input type="tel" id="bookingPhone" name="phone"  autocomplete="tel">
+                <label for="bookingPhone">Phone <span class="field-required" aria-hidden="true">*</span></label>
+                <input type="tel" id="bookingPhone" name="phone" required autocomplete="tel">
               </div>
               <div class="form-group">
                 <label for="bookingRoom">Room Type</label>
-                <select id="bookingRoom" name="room" required>
+                <select id="bookingRoom" name="room">
                   <option value="">Select room type</option>
                   <option value="single">Single Room — $100/week</option>
                   <option value="double-shared">Double Room (2 people) — $160/week</option>
@@ -717,11 +722,11 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="bookingCheckin">Preferred Check-in</label>
-                <input type="date" id="bookingCheckin" name="checkin" required>
+                <input type="date" id="bookingCheckin" name="checkin">
               </div>
               <div class="form-group">
                 <label for="bookingDuration">Stay Duration</label>
-                <select id="bookingDuration" name="duration" required>
+                <select id="bookingDuration" name="duration">
                   <option value="">Select duration</option>
                   <option value="short">Short stay (1–4 weeks)</option>
                   <option value="medium">Medium stay (1–3 months)</option>
@@ -733,7 +738,16 @@
               <label for="bookingNotes">Additional Notes</label>
               <textarea id="bookingNotes" name="notes" rows="3" placeholder="Agency name, linen preference, special requirements..."></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg btn--full">Submit Booking Enquiry</button>
+            <div class="booking__actions">
+              <button type="button" class="btn btn--whatsapp btn--lg" id="bookingWhatsAppBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span class="booking__btn-label">Send via WhatsApp</span>
+              </button>
+              <button type="button" class="btn btn--messenger btn--lg" id="bookingMessengerBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.36 2 2 6.13 2 11.25c0 2.91 1.19 5.52 3.09 7.45L4 22l3.88-1.02c1.05.29 2.16.45 3.3.45 5.64 0 10.22-4.13 10.22-9.22C21.4 6.13 17.04 2 12 2zm0 16.5c-1.06 0-2.09-.2-3.05-.57l-.22-.1-2.17.57.58-2.12-.14-.22A7.35 7.35 0 014.6 11.25C4.6 7.35 7.88 4.2 12 4.2s7.4 3.15 7.4 7.05-3.28 7.25-7.4 7.25z"/></svg>
+                <span class="booking__btn-label">Send via Messenger</span>
+              </button>
+            </div>
           </form>
         </div>
       </div>
