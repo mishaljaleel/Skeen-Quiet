@@ -1,0 +1,864 @@
+/**
+ * Luxury hospitality UI layer
+ * Theme-aware — uses tokens from variables.css ([data-theme="light"|"dark"])
+ */
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-text);
+}
+
+/* —— Header —— */
+.header:not(.is-scrolled) {
+  background: var(--color-header-hero-fade);
+}
+
+.header.is-scrolled {
+  background: var(--color-header-scrolled);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav__link {
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.nav__link::after {
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.header__cta {
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--color-on-gold);
+  font-weight: 600;
+  box-shadow: 0 4px 20px var(--color-gold-soft);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-theme), color var(--transition-theme);
+}
+
+.header__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--color-gold-soft);
+  background: var(--color-secondary-hover);
+  border-color: transparent;
+  color: var(--color-on-gold);
+}
+
+/* —— Hero —— */
+.hero {
+  min-height: 100svh;
+}
+
+.hero__bg-image {
+  transform: scale(1.02);
+  transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero:hover .hero__bg-image {
+  transform: scale(1.05);
+}
+
+.hero__content {
+  transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
+}
+
+.hero__content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.hero__location {
+  background: var(--color-hero-badge-bg);
+  color: var(--color-hero-badge-text);
+  border: 1px solid var(--color-glass-border);
+  letter-spacing: 0.16em;
+  font-size: var(--fs-xs);
+  transition: background var(--transition-theme), color var(--transition-theme), border-color var(--transition-theme);
+}
+
+.hero__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero__tagline {
+  color: var(--color-sand);
+  font-size: clamp(var(--fs-lg), 2.5vw, var(--fs-2xl));
+}
+
+.hero .btn--primary {
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--color-on-gold);
+  font-weight: 600;
+  padding: 1rem 2.25rem;
+  box-shadow: 0 8px 28px var(--color-gold-soft);
+}
+
+.hero .btn--primary:hover {
+  background: var(--color-secondary-hover);
+  border-color: transparent;
+  color: var(--color-on-gold);
+}
+
+.hero .btn--outline {
+  border-color: var(--color-glass-border);
+  background: var(--color-glass-bg);
+  color: var(--color-hero-text);
+}
+
+.hero .btn--outline:hover {
+  background: var(--color-glass-bg-hover);
+  border-color: var(--color-hero-accent);
+  color: var(--color-hero-text);
+}
+
+.hero__transition-shape {
+  color: var(--color-bg);
+  filter: drop-shadow(0 -8px 24px rgba(31, 77, 58, 0.06));
+  transition: color var(--transition-theme);
+}
+
+.hero__scroll {
+  color: var(--color-hero-text);
+}
+
+/* —— Sections —— */
+.section {
+  padding-block: clamp(var(--space-4xl), 10vw, var(--space-5xl);
+}
+
+.section__label {
+  color: var(--color-gold);
+  letter-spacing: 0.2em;
+  font-size: var(--fs-xs);
+  position: relative;
+  padding-bottom: var(--space-sm);
+  transition: color var(--transition-theme);
+}
+
+.section__label::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--gradient-gold);
+  margin: var(--space-sm) auto 0;
+  border-radius: var(--radius-full);
+}
+
+.section__header:not(.section__header--center) .section__label::after {
+  margin-left: 0;
+}
+
+.section__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.section__desc {
+  color: var(--color-text-muted);
+}
+
+/* —— About —— */
+.about {
+  transition: background var(--transition-theme);
+}
+
+.about__highlight {
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-theme), background var(--transition-theme);
+}
+
+.about__highlight-icon {
+  transition: background var(--transition-theme), color var(--transition-theme);
+}
+
+.about__image-wrap {
+  transition: box-shadow var(--transition-theme), border-color var(--transition-theme);
+}
+
+.about__nearby {
+  transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
+}
+
+.about__nearby-card {
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-theme), background var(--transition-theme);
+}
+
+.about__tagline {
+  color: var(--color-accent);
+}
+
+/* —— Features —— */
+.features {
+  background: var(--color-bg);
+}
+
+.feature-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-theme), background var(--transition-theme);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-card-hover-border);
+}
+
+.feature-card__title {
+  color: var(--color-text);
+}
+
+.feature-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  border-radius: var(--radius-md);
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.feature-card:hover .feature-card__icon {
+  background: var(--color-gold-soft);
+  color: var(--color-gold);
+}
+
+/* —— Nature —— */
+.nature-card {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: transform var(--transition-base), background var(--transition-theme), box-shadow var(--transition-base), border-color var(--transition-theme);
+}
+
+.nature-card:hover {
+  transform: translateY(-4px);
+  background: var(--color-glass-bg-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.nature-card__title {
+  color: var(--color-overlay-text);
+}
+
+.nature-card__desc {
+  color: var(--color-overlay-muted);
+}
+
+.nature__quote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: var(--space-xl);
+  font-family: var(--font-script);
+  font-size: var(--fs-xl);
+  font-style: italic;
+  color: var(--color-overlay-text);
+}
+
+/* —— Pricing / Rooms —— */
+.rooms {
+  background: var(--color-bg-alt);
+}
+
+.pricing-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-theme), border-color var(--transition-theme);
+  overflow: hidden;
+  position: relative;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+.pricing-card--featured {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-gold-soft);
+}
+
+.pricing-card--featured::before {
+  opacity: 1;
+}
+
+.pricing-card__badge {
+  background: var(--gradient-gold);
+  color: var(--color-on-gold);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-full);
+  padding: 0.35rem 1rem;
+}
+
+.pricing-card__title {
+  color: var(--color-text);
+}
+
+.pricing-card__amount {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: var(--fs-3xl);
+}
+
+.pricing-card__discount,
+.pricing-card__features {
+  color: var(--color-text-muted);
+}
+
+.pricing-card--featured .btn--primary {
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--color-on-gold);
+}
+
+.pricing__note {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
+}
+
+.pricing__note svg {
+  color: var(--color-gold);
+}
+
+/* —— Gallery —— */
+.gallery {
+  background: var(--color-bg);
+}
+
+.gallery__category {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-theme), border-color var(--transition-theme);
+}
+
+.gallery__category:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.gallery__category-title {
+  color: var(--color-text);
+}
+
+.gallery__category-count {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.gallery__item {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-lightbox__footer {
+  background: var(--color-lightbox-footer-bg);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+}
+
+.gallery-lightbox__category {
+  color: var(--color-sand);
+}
+
+/* —— Testimonials —— */
+.testimonials {
+  background: var(--gradient-surface);
+}
+
+.testimonial-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(8px);
+  transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
+}
+
+.testimonial-card__stars svg {
+  color: var(--color-gold);
+}
+
+.testimonial-card__quote {
+  font-family: var(--font-script);
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.testimonial-card__author strong {
+  color: var(--color-text);
+}
+
+.testimonial-card__author span {
+  color: var(--color-text-muted);
+}
+
+.testimonial-card__avatar {
+  background: var(--gradient-accent);
+  color: var(--color-on-dark);
+  font-weight: 600;
+}
+
+.testimonials__btn {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.testimonials__btn:hover {
+  border-color: var(--color-gold);
+  background: var(--color-gold-soft);
+}
+
+.testimonials__dot {
+  background: var(--color-border);
+}
+
+.testimonials__dot.active {
+  background: var(--color-gold);
+}
+
+/* —— Booking —— */
+.booking {
+  background: transparent;
+}
+
+.booking__overlay {
+  transition: background var(--transition-theme);
+}
+
+.booking__overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 15% 30%, var(--color-gold-soft) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.booking__lead {
+  color: var(--color-booking-desc);
+}
+
+.booking__card {
+  background: var(--color-booking-form-bg);
+  border: 1px solid var(--color-booking-form-border);
+  transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
+}
+
+.booking__form .form-group input,
+.booking__form .form-group textarea,
+.booking__form .form-group select {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(18, 36, 28, 0.12);
+  background-color: #ffffff;
+  color: var(--color-text);
+}
+
+.booking__form .form-group select option {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.booking__form .form-group input::placeholder,
+.booking__form .form-group textarea::placeholder {
+  color: var(--color-text-light);
+  opacity: 1;
+}
+
+.booking__form .form-group input:focus,
+.booking__form .form-group textarea:focus,
+.booking__form .form-group select:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px var(--color-gold-soft);
+}
+
+.booking__form .form-error {
+  color: #fff5f5;
+  background: rgba(192, 57, 43, 0.28);
+  border: 1px solid rgba(255, 220, 220, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.field-required {
+  color: var(--color-sand);
+}
+
+.booking__tour-thumb {
+  border-color: var(--color-glass-border);
+  transition: border-color var(--transition-theme), box-shadow var(--transition-theme), transform var(--transition-base);
+}
+
+/* —— Footer —— */
+.footer {
+  background: var(--gradient-footer);
+  border-top: 1px solid var(--color-footer-border);
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+
+.footer__desc,
+.footer__bottom p {
+  color: var(--color-footer-text);
+}
+
+.footer__heading {
+  color: var(--color-sand);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: var(--fs-xs);
+}
+
+.footer__links a,
+.footer__contact a {
+  color: var(--color-footer-text);
+  transition: color var(--transition-fast);
+}
+
+.footer__links a:hover,
+.footer__contact a:hover {
+  color: var(--color-sand);
+}
+
+.footer__social-link {
+  background: var(--color-footer-social-bg);
+  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.footer__social-link:hover {
+  transform: translateY(-3px);
+  background: var(--color-gold);
+  color: var(--color-on-gold);
+}
+
+.footer__tagline {
+  font-family: var(--font-script);
+  font-style: italic;
+  color: var(--color-sand);
+  opacity: 0.9;
+}
+
+/* —— Buttons global —— */
+.btn--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: 0 4px 16px var(--color-accent-light);
+  transition: background var(--transition-theme), border-color var(--transition-theme), color var(--transition-theme), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-on-accent);
+}
+
+.btn--outline {
+  color: var(--color-text);
+  border-color: var(--color-border);
+  transition: border-color var(--transition-base), color var(--transition-base), background var(--transition-theme);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-accent);
+}
+
+/* —— Forms (general) —— */
+.form-group label {
+  color: var(--color-text);
+  transition: color var(--transition-theme);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border-radius: var(--radius-md);
+  background: var(--color-input-bg);
+  color: var(--color-input-text);
+  border-color: var(--color-border);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.form-error {
+  color: #c0392b;
+}
+
+[data-theme="dark"] .form-error {
+  color: #f5b4ad;
+}
+
+/* —— Floating WhatsApp —— */
+.fab {
+  position: fixed;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.fab:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.fab--whatsapp {
+  bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
+  background: #25d366;
+}
+
+@media (min-width: 769px) {
+  .fab--whatsapp {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* —— Sticky mobile booking CTA —— */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1400;
+  padding: var(--space-md) var(--container-padding);
+  padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+  background: var(--color-sticky-cta-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+
+.sticky-cta .btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: var(--fs-base);
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--color-on-gold);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: block;
+  }
+
+  body {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .hero__content {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    max-width: 100%;
+  }
+}
+
+/* —— Light theme refinements —— */
+[data-theme="light"] .header.is-scrolled .nav__link {
+  color: var(--color-text-muted);
+}
+
+[data-theme="light"] .header.is-scrolled .nav__link:hover,
+[data-theme="light"] .header.is-scrolled .nav__link.active {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .header.is-scrolled .logo__text {
+  color: var(--color-text);
+  text-shadow: none;
+}
+
+[data-theme="light"] .hero__transition-shape {
+  color: var(--color-bg);
+}
+
+[data-theme="light"] .booking__form .form-group label {
+  color: var(--color-form-on-dark-label);
+}
+
+/* —— Dark theme refinements —— */
+[data-theme="dark"] .header:not(.is-scrolled) {
+  background: var(--color-header-hero-fade);
+}
+
+[data-theme="dark"] .header.is-scrolled {
+  background: var(--color-header-scrolled);
+  border-bottom-color: var(--color-border);
+}
+
+[data-theme="dark"] .hero__transition-shape {
+  color: var(--color-bg);
+}
+
+[data-theme="dark"] .hero__location {
+  background: var(--color-hero-badge-bg);
+  color: var(--color-hero-badge-text);
+  border-color: var(--color-glass-border);
+}
+
+[data-theme="dark"] .feature-card:hover,
+[data-theme="dark"] .pricing-card:hover {
+  box-shadow: var(--shadow-card-hover), var(--shadow-glow);
+}
+
+[data-theme="dark"] .pricing-card--featured {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+[data-theme="dark"] .nature-card:hover {
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+[data-theme="dark"] .gallery__category {
+  background: var(--color-surface);
+}
+
+[data-theme="dark"] .gallery__item {
+  border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .gallery__item:hover {
+  box-shadow: var(--shadow-glow);
+  border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .testimonial-card {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .booking__overlay {
+  background:
+    linear-gradient(115deg, rgba(248, 245, 240, 0.88) 0%, rgba(232, 224, 210, 0.82) 45%, rgba(248, 245, 240, 0.9) 100%),
+    linear-gradient(to top, rgba(248, 245, 240, 0.7) 0%, transparent 50%);
+}
+
+[data-theme="light"] .booking__title,
+[data-theme="light"] .booking__card-title,
+[data-theme="light"] .booking__tour-title {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .booking__card {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] .booking__lead,
+[data-theme="light"] .booking__tour-desc {
+  color: var(--color-text-muted);
+}
+
+[data-theme="light"] .booking__quick-label {
+  color: var(--color-text-muted);
+}
+
+[data-theme="light"] .booking__quick-value {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .booking__overlay::after {
+  background: radial-gradient(ellipse 60% 50% at 80% 20%, var(--color-glow-strong) 0%, transparent 60%);
+}
+
+[data-theme="dark"] .booking__form .form-group label {
+  color: var(--color-form-on-dark-label);
+}
+
+[data-theme="dark"] .footer {
+  background: var(--gradient-footer);
+}
+
+[data-theme="dark"] .btn--primary {
+  box-shadow: 0 4px 20px var(--color-glow);
+}
+
+[data-theme="dark"] .btn--primary:hover {
+  box-shadow: 0 6px 28px var(--color-glow-strong);
+}
+
+[data-theme="dark"] .section__title {
+  text-shadow: 0 0 40px var(--color-glow);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select {
+  background: var(--color-input-bg);
+  color: var(--color-input-text);
+  border-color: var(--color-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg-image,
+  .hero:hover .hero__bg-image,
+  .feature-card:hover,
+  .pricing-card:hover,
+  .fab:hover {
+    transform: none;
+    transition: none;
+  }
+}

@@ -3,6 +3,9 @@ body {
   font-size: var(--fs-base);
   color: var(--color-text);
   background-color: var(--color-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -52,7 +55,8 @@ body {
   font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
   font-weight: 700;
   color: var(--color-text);
-  line-height: 1.15;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 
 .section__desc {
@@ -94,6 +98,8 @@ body {
   background: var(--color-accent);
   color: var(--color-on-accent);
   border-color: var(--color-accent);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn--primary:hover {
@@ -101,6 +107,10 @@ body {
   border-color: var(--color-accent-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
 }
 
 .btn--outline {

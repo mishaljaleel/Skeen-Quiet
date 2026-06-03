@@ -34,13 +34,14 @@
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/luxury.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,11 +50,13 @@
     "description": "Peaceful shared accommodation for healthcare professionals in Woodchester, South Australia.",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "46 Rodwell Road",
       "addressLocality": "Woodchester",
+      "postalCode": "5255",
       "addressRegion": "SA",
       "addressCountry": "AU"
     },
-    "priceRange": "$100-$160/week",
+    "priceRange": "$275-$500/week",
     "amenityFeature": ["WiFi", "Parking", "Kitchen", "Utilities Included"]
   }
   </script>
@@ -78,7 +81,7 @@
           <li><a href="#rooms" class="nav__link">Rooms</a></li>
           <li><a href="#gallery" class="nav__link">Gallery</a></li>
           <!-- <li><a href="#agencies" class="nav__link">Agencies</a></li> -->
-          <li><a href="#booking" class="nav__link">Contact</a></li>
+          <li><a href="#bookingForm" class="nav__link">Contact</a></li>
         </ul>
       </nav>
 
@@ -96,7 +99,7 @@
             </span>
           </span>
         </button>
-        <a href="#booking" class="btn btn--primary header__cta">Book Enquiry</a>
+        <a href="#bookingForm" class="btn btn--primary header__cta">Book Enquiry</a>
       </div>
 
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav">
@@ -124,7 +127,7 @@
           <div class="hero__actions">
             <a href="#rooms" class="btn btn--primary btn--lg">View Rooms</a>
             <!-- <a href="#contact" class="btn btn--outline btn--lg">Contact Us</a> -->
-            <a href="#booking" class="btn btn--outline btn--lg">Book Enquiry</a>
+            <a href="#bookingForm" class="btn btn--outline btn--lg">Book Enquiry</a>
           </div>
           <p class="hero__tagline">Calm spaces. Better days.</p>
         </div>
@@ -145,62 +148,71 @@
     <!-- About -->
     <section class="section about" id="about">
       <div class="container">
-        <div class="section__header" data-animate="fade-up">
-          <span class="section__label">About Quiet Corners of Australia</span>
-          <h2 class="section__title">A Quiet Place to Stay.<br>A Better Place to Be.</h2>
-        </div>
-        <div class="about__grid">
-          <div class="about__content" data-animate="fade-up">
-            <p class="about__lead">
-              Quiet Corners of Australia is a fully furnished 5-bedroom shared residence located in the peaceful village of
-              Woodchester, South Australia — set on a serene 3-acre property surrounded by natural Australian bush.
-            </p>
-            <p class="about__text">
-              Designed with healthcare workers in mind, Quiet Corners of Australia offers a quiet environment where you can
-              truly rest after long shifts. Reduce commuting fatigue, enjoy ready-to-move-in comfort, and
-              return to a home that supports your wellbeing.
-            </p>
-            <ul class="about__features">
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>5 fully furnished private bedrooms</span>
+        <div class="about__layout">
+          <div class="about__main" data-animate="fade-up">
+            <span class="about__label">About Quiet Corners of Australia</span>
+            <h2 class="about__title">A Quiet Place to Stay.<br>A Better Place to Be.</h2>
+            <div class="about__copy">
+              <p class="about__lead">
+                Quiet Corners of Australia is a fully furnished 5-bedroom shared residence at
+                <strong>46 Rodwell Road, Woodchester SA 5255</strong> — a serene 3-acre creekside property surrounded by natural Australian bush.
+              </p>
+              <p class="about__text">
+                Designed with healthcare workers in mind, we offer a calm place to rest after long shifts. Reduce commuting fatigue,
+                enjoy ready-to-move-in comfort, and return to a home that supports your wellbeing.
+              </p>
+            </div>
+            <ul class="about__highlights">
+              <li class="about__highlight">
+                <span class="about__highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.5"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <span class="about__highlight-text">5 fully furnished private bedrooms</span>
               </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Peaceful 3-acre creekside property</span>
+              <li class="about__highlight">
+                <span class="about__highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 6 5 9 5 14a7 7 0 0014 0c0-5-3-8-7-12z" stroke="currentColor" stroke-width="1.5"/><path d="M12 12v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <span class="about__highlight-text">Peaceful 3-acre creekside property</span>
               </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Ideal for nurses after long shifts</span>
+              <li class="about__highlight">
+                <span class="about__highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <span class="about__highlight-text">Ideal for nurses after long shifts</span>
               </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Short and long-stay flexibility</span>
+              <li class="about__highlight">
+                <span class="about__highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <span class="about__highlight-text">Short and long-stay flexibility</span>
               </li>
             </ul>
           </div>
-          <div class="about__visual" data-animate="fade-left">
-            <div class="about__image about__image--arch">
-              <img src="assets/images/qca-frontview.jpeg" alt="Quiet Corners of Australia property surrounded by pine trees and creekside views" width="500" height="420" loading="lazy">
-            </div>
-            <div class="about__locations">
-              <span class="about__locations-label">Conveniently located near</span>
-              <div class="about__location-cards">
-                <div class="location-card">
-                  <span class="location-card__time">10 mins</span>
-                  <span class="location-card__name">Strathalbyn</span>
+          <div class="about__aside" data-animate="fade-left">
+            <figure class="about__figure">
+              <div class="about__image-wrap">
+                <img src="assets/images/qca-frontview.jpeg" alt="Quiet Corners of Australia — creekside residence in Woodchester" width="560" height="420" loading="lazy" decoding="async">
+              </div>
+            </figure>
+            <aside class="about__nearby" aria-labelledby="aboutNearbyHeading">
+              <span class="about__nearby-label" id="aboutNearbyHeading">Conveniently located near</span>
+              <div class="about__nearby-grid">
+                <div class="about__nearby-card">
+                  <span class="about__nearby-time">10 mins</span>
+                  <span class="about__nearby-place">Strathalbyn</span>
                 </div>
-                <div class="location-card">
-                  <span class="location-card__time">20 mins</span>
-                  <span class="location-card__name">Mount Barker</span>
+                <div class="about__nearby-card">
+                  <span class="about__nearby-time">20 mins</span>
+                  <span class="about__nearby-place">Mount Barker</span>
                 </div>
-                <div class="location-card">
-                  <span class="location-card__time">25 mins</span>
-                  <span class="location-card__name">Murray Bridge</span>
+                <div class="about__nearby-card">
+                  <span class="about__nearby-time">25 mins</span>
+                  <span class="about__nearby-place">Murray Bridge</span>
                 </div>
               </div>
-              <p class="about__script">Stay close to work. Stay closer to peace.</p>
-            </div>
+              <p class="about__tagline">Stay close to work. Stay closer to peace.</p>
+            </aside>
           </div>
         </div>
       </div>
@@ -343,53 +355,53 @@
             <div class="pricing-card__header">
               <h3 class="pricing-card__title">Single Room</h3>
               <div class="pricing-card__price">
-                <span class="pricing-card__amount">$100</span>
+                <span class="pricing-card__amount">$275</span>
                 <span class="pricing-card__period">/ week</span>
               </div>
             </div>
-            <p class="pricing-card__discount">$25 discount if you bring your own linen &amp; towel</p>
+            <p class="pricing-card__discount">$25 off when you bring your own linen</p>
             <ul class="pricing-card__features">
               <li>Utilities included</li>
               <li>Shared facilities access</li>
               <li>Quiet &amp; clean environment</li>
               <li>Fully furnished room</li>
             </ul>
-            <a href="#booking" class="btn btn--outline btn--full">Enquire Now</a>
+            <a href="#bookingForm" class="btn btn--outline btn--full">Enquire Now</a>
           </article>
           <article class="pricing-card pricing-card--featured" data-animate="fade-up" data-delay="100">
             <span class="pricing-card__badge">Most Popular</span>
             <div class="pricing-card__header">
               <h3 class="pricing-card__title">Double Room (2 People)</h3>
               <div class="pricing-card__price">
-                <span class="pricing-card__amount">$160</span>
+                <span class="pricing-card__amount">$500</span>
                 <span class="pricing-card__period">/ week</span>
               </div>
             </div>
-            <p class="pricing-card__discount">$35 discount if you bring your own queen-size bed linen</p>
+            <p class="pricing-card__discount">$35 off when you bring your own linen</p>
             <ul class="pricing-card__features">
               <li>Utilities included</li>
               <li>Shared facilities access</li>
               <li>Quiet &amp; clean environment</li>
               <li>Ideal for colleagues sharing</li>
             </ul>
-            <a href="#booking" class="btn btn--primary btn--full">Enquire Now</a>
+            <a href="#bookingForm" class="btn btn--primary btn--full">Enquire Now</a>
           </article>
           <article class="pricing-card" data-animate="fade-up" data-delay="200">
             <div class="pricing-card__header">
               <h3 class="pricing-card__title">Double Room (Single Occupancy)</h3>
               <div class="pricing-card__price">
-                <span class="pricing-card__amount">$120</span>
+                <span class="pricing-card__amount">$350</span>
                 <span class="pricing-card__period">/ week</span>
               </div>
             </div>
-            <p class="pricing-card__discount">$35 discount if you bring your own queen-size bed linen</p>
+            <p class="pricing-card__discount">$35 off when you bring your own linen</p>
             <ul class="pricing-card__features">
               <li>Utilities included</li>
               <li>Shared facilities access</li>
               <li>Quiet &amp; clean environment</li>
               <li>Extra space for comfort</li>
             </ul>
-            <a href="#booking" class="btn btn--outline btn--full">Enquire Now</a>
+            <a href="#bookingForm" class="btn btn--outline btn--full">Enquire Now</a>
           </article>
         </div>
         <div class="pricing__note" data-animate="fade-up">
@@ -605,7 +617,7 @@
               </div>
               <div>
                 <h3>Phone</h3>
-                <a href="tel:+61400000000">0400 000 000</a>
+                <a href="tel:+61434629664">+61 434 629 664</a>
               </div>
             </div>
             <div class="contact__card">
@@ -614,7 +626,7 @@
               </div>
               <div>
                 <h3>Email</h3>
-                <a href="mailto:enquiries@quietcorners.com.au">enquiries@quietcorners.com.au</a>
+                <a href="mailto:info@quietcornersofaustralia.com">info@quietcornersofaustralia.com</a>
               </div>
             </div>
             <div class="contact__card">
@@ -623,13 +635,13 @@
               </div>
               <div>
                 <h3>Location</h3>
-                <p>Woodchester, South Australia</p>
+                <p>46 Rodwell Road<br>Woodchester SA 5255</p>
               </div>
             </div>
             <div class="contact__map">
               <iframe
-                title="Quiet Corners of Australia location — Woodchester, South Australia"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=138.85%2C-35.22%2C138.95%2C-35.17&layer=mapnik&marker=-35.195%2C138.901"
+                title="Quiet Corners of Australia — 46 Rodwell Road, Woodchester SA 5255"
+                src="https://maps.google.com/maps?q=46+Rodwell+Road,+Woodchester,+SA+5255,+Australia&amp;hl=en&amp;z=15&amp;output=embed"
                 width="100%"
                 height="220"
                 loading="lazy"
@@ -665,83 +677,137 @@
 
     <!-- Booking Enquiry -->
     <section class="section booking" id="booking">
-      <div class="container">
-        <div class="section__header section__header--center" data-animate="fade-up">
-          <span class="section__label">Contact Us</span>
-          <h2 class="section__title">Enquiries &amp; Availability</h2>
-          <p class="section__desc">Reach out to check room availability, ask questions, or arrange a visit to Quiet Corners of Australia.</p>
-        </div>
-        <div class="booking__inner" data-animate="fade-up">
-          
-          <div class="booking__content">
-            <span class="section__label">Book Enquiry</span>
-            <h2 class="section__title">Reserve Your Room</h2>
-            <p class="booking__desc">Tell us your preferred dates, room type, and we'll confirm availability as soon as possible.</p>
-            <div class="booking__map">
-              <iframe
-                title="Quiet Corners of Australia location — Woodchester, South Australia"
-                src="https://maps.google.com/maps?q=Woodchester,+South+Australia,+Australia&amp;hl=en&amp;z=13&amp;output=embed"
-                width="100%"
-                height="280"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen>
-              </iframe>
+      <div class="booking__bg" aria-hidden="true">
+        <img src="assets/images/qca-pinetrees.jpeg" alt="" class="booking__bg-image" width="1920" height="1080" loading="lazy" decoding="async">
+        <div class="booking__overlay"></div>
+      </div>
+      <div class="container booking__container">
+        <div class="booking__layout" data-animate="fade-up">
+          <aside class="booking__aside">
+            <header class="booking__intro">
+              <span class="booking__label">Get In Touch</span>
+              <h2 class="booking__title">Enquiries &amp; Availability</h2>
+              <p class="booking__lead">Reach out to check room availability, ask questions, or arrange a visit to Quiet Corners of Australia.</p>
+            </header>
+            <div class="booking__card booking__quick">
+              <h3 class="booking__card-title booking__card-title--icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+                Quick Contact
+              </h3>
+              <ul class="booking__quick-list">
+                <li class="booking__quick-item">
+                  <span class="booking__quick-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <div>
+                    <span class="booking__quick-label">Phone</span>
+                    <a href="tel:+61434629664" class="booking__quick-value">+61 434 629 664</a>
+                  </div>
+                </li>
+                <li class="booking__quick-item">
+                  <span class="booking__quick-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <div>
+                    <span class="booking__quick-label">Email</span>
+                    <a href="mailto:info@quietcornersofaustralia.com" class="booking__quick-value">info@quietcornersofaustralia.com</a>
+                  </div>
+                </li>
+                <li class="booking__quick-item">
+                  <span class="booking__quick-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <div>
+                    <span class="booking__quick-label">Address</span>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=46+Rodwell+Road,+Woodchester,+SA+5255,+Australia" class="booking__quick-value" target="_blank" rel="noopener noreferrer">46 Rodwell Road<br>Woodchester SA 5255</a>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <p class="booking__location">
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Woodchester,+South+Australia" target="_blank" rel="noopener noreferrer">Woodchester, South Australia</a>
-            </p>
-          </div>
-         
-          <form class="booking__form" id="bookingForm" data-whatsapp="9946335425" data-messenger="quietcornersofaustralia" novalidate>
+          </aside>
+
+          <form class="booking__card booking__form" id="bookingForm" data-whatsapp="61434629664" data-messenger="quietcornersofaustralia" novalidate>
+            <h3 class="booking__card-title booking__form-title">Send Your Enquiry</h3>
             <div class="form-row">
               <div class="form-group">
-                <label for="bookingName">Full Name <span class="field-required" aria-hidden="true">*</span></label>
-                <input type="text" id="bookingName" name="name" required autocomplete="name">
+                <label class="visually-hidden" for="bookingName">Full Name</label>
+                <div class="booking__input-wrap">
+                  <span class="booking__field-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <input type="text" id="bookingName" name="name" autocomplete="name" placeholder="Your full name">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="bookingEmail">Email</label>
-                <input type="email" id="bookingEmail" name="email"  autocomplete="email">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="bookingPhone">Phone <span class="field-required" aria-hidden="true">*</span></label>
-                <input type="tel" id="bookingPhone" name="phone" required autocomplete="tel">
-              </div>
-              <div class="form-group">
-                <label for="bookingRoom">Room Type</label>
-                <select id="bookingRoom" name="room">
-                  <option value="">Select room type</option>
-                  <option value="single">Single Room — $100/week</option>
-                  <option value="double-shared">Double Room (2 people) — $160/week</option>
-                  <option value="double-single">Double Room (Single) — $120/week</option>
-                </select>
+              <div class="form-group booking__field--desktop-only">
+                <label class="visually-hidden" for="bookingEmail">Email</label>
+                <div class="booking__input-wrap">
+                  <span class="booking__field-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <input type="email" id="bookingEmail" name="email" autocomplete="email" placeholder="your@email.com">
+                </div>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="bookingCheckin">Preferred Check-in</label>
-                <input type="date" id="bookingCheckin" name="checkin">
+                <label class="visually-hidden" for="bookingPhone">Phone</label>
+                <div class="booking__input-wrap">
+                  <span class="booking__field-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <input type="tel" id="bookingPhone" name="phone" autocomplete="tel" placeholder="Your mobile number">
+                </div>
               </div>
               <div class="form-group">
-                <label for="bookingDuration">Stay Duration</label>
-                <select id="bookingDuration" name="duration">
-                  <option value="">Select duration</option>
-                  <option value="short">Short stay (1–4 weeks)</option>
-                  <option value="medium">Medium stay (1–3 months)</option>
-                  <option value="long">Long stay (3+ months)</option>
-                </select>
+                <label class="visually-hidden" for="bookingRoom">Preferred Room</label>
+                <div class="booking__input-wrap booking__input-wrap--select">
+                  <span class="booking__field-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.5"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <select id="bookingRoom" name="room">
+                    <option value="">Select room type</option>
+                    <option value="single">Single Room — $275/week</option>
+                    <option value="double-single">Double Room (1 person) — $350/week</option>
+                    <option value="double-shared">Double Room (2 people) — $500/week</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label for="bookingNotes">Additional Notes</label>
-              <textarea id="bookingNotes" name="notes" rows="3" placeholder="Agency name, linen preference, special requirements..."></textarea>
+            <div class="form-row booking__field--desktop-only">
+              <div class="form-group">
+                <label class="visually-hidden" for="bookingCheckin">Preferred Check-in</label>
+                <div class="booking__input-wrap">
+                  <span class="booking__field-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <input type="date" id="bookingCheckin" name="checkin">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="visually-hidden" for="bookingDuration">Stay Duration</label>
+                <div class="booking__input-wrap booking__input-wrap--select">
+                  <span class="booking__field-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </span>
+                  <select id="bookingDuration" name="duration">
+                    <option value="">Select duration</option>
+                    <option value="short">Short stay (1–4 weeks)</option>
+                    <option value="medium">Medium stay (1–3 months)</option>
+                    <option value="long">Long stay (3+ months)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group booking__field--desktop-only">
+              <label class="visually-hidden" for="bookingNotes">Additional Notes</label>
+              <div class="booking__input-wrap booking__input-wrap--textarea">
+                <textarea id="bookingNotes" name="notes" rows="3" placeholder="Any special requests, arrival instructions, questions..."></textarea>
+              </div>
             </div>
             <div class="booking__actions">
               <button type="button" class="btn btn--whatsapp btn--lg" id="bookingWhatsAppBtn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                <span class="booking__btn-label">Send via WhatsApp</span>
+                <span class="booking__btn-label">Send on WhatsApp</span>
               </button>
               <button type="button" class="btn btn--messenger btn--lg" id="bookingMessengerBtn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.36 2 2 6.13 2 11.25c0 2.91 1.19 5.52 3.09 7.45L4 22l3.88-1.02c1.05.29 2.16.45 3.3.45 5.64 0 10.22-4.13 10.22-9.22C21.4 6.13 17.04 2 12 2zm0 16.5c-1.06 0-2.09-.2-3.05-.57l-.22-.1-2.17.57.58-2.12-.14-.22A7.35 7.35 0 014.6 11.25C4.6 7.35 7.88 4.2 12 4.2s7.4 3.15 7.4 7.05-3.28 7.25-7.4 7.25z"/></svg>
@@ -749,6 +815,52 @@
               </button>
             </div>
           </form>
+        </div>
+
+        <div class="booking__bottom" data-animate="fade-up" data-delay="100">
+          <article class="booking__card booking__tour">
+            <div class="booking__tour-inner">
+              <div class="booking__tour-copy">
+                <span class="booking__tour-yt" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </span>
+                <h3 class="booking__tour-title">Watch Our Homestay Tour</h3>
+                <p class="booking__tour-desc">See the beauty of Quiet Corners and experience nature like never before.</p>
+              </div>
+              <!-- Replace VIDEO_ID in href with your YouTube video ID -->
+              <a href="https://www.youtube.com/watch?v=VIDEO_ID" class="booking__tour-thumb" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/qca-frontview.jpeg" alt="Play Quiet Corners homestay tour on YouTube" width="360" height="202" loading="lazy" decoding="async">
+                <span class="booking__tour-play" aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 68 48" fill="none"><rect width="68" height="48" rx="12" fill="#FF0000"/><path d="M28 16v16l14-8-14-8z" fill="#fff"/></svg>
+                </span>
+              </a>
+            </div>
+          </article>
+          <aside class="booking__card booking__follow" aria-labelledby="bookingFollowHeading">
+            <h3 class="booking__card-title" id="bookingFollowHeading">Follow Us</h3>
+            <ul class="booking__social">
+              <li>
+                <a href="https://www.instagram.com/" class="booking__social-link booking__social-link--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/" class="booking__social-link booking__social-link--facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" class="booking__social-link booking__social-link--youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/61434629664" class="booking__social-link booking__social-link--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+              </li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
@@ -768,12 +880,12 @@
           <p class="footer__desc">Peaceful shared accommodation for healthcare professionals in the heart of the South Australian countryside.</p>
           <p class="footer__tagline">A quiet place to stay. A better place to be.</p>
           <div class="footer__social">
-            <a href="https://www.facebook.com/" aria-label="Facebook" class="footer__social-link">
+            <!-- <a href="https://www.facebook.com/" aria-label="Facebook" class="footer__social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="https://www.instagram.com/" aria-label="Instagram" class="footer__social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
+            </a> -->
           </div>
         </div>
         <div class="footer__links">
@@ -784,7 +896,7 @@
             <li><a href="#features">Features</a></li>
             <li><a href="#rooms">Rooms &amp; Pricing</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#booking">Contact</a></li>
+            <li><a href="#bookingForm">Contact</a></li>
           </ul>
         </div>
         <div class="footer__links">
@@ -792,7 +904,7 @@
           <ul>
             <li><a href="#rooms">Room Rates</a></li>
             <!-- <li><a href="#agencies">Agency Partnerships</a></li> -->
-            <li><a href="#booking">Book Enquiry</a></li>
+            <li><a href="#bookingForm">Book Enquiry</a></li>
             <li><a href="#nature">Nature &amp; Recovery</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
           </ul>
@@ -800,9 +912,10 @@
         <div class="footer__contact">
           <h4 class="footer__heading">Get in Touch</h4>
           <address>
-            <p>Woodchester, South Australia</p>
-            <p><a href="mailto:enquiries@quietcorners.com.au">enquiries@quietcorners.com.au</a></p>
-            <p><a href="tel:+61400000000">0400 000 000</a></p>
+            <p>46 Rodwell Road<br>Woodchester SA 5255</p>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=46+Rodwell+Road,+Woodchester,+SA+5255,+Australia" target="_blank" rel="noopener noreferrer">View on map</a></p>
+            <p><a href="mailto:info@quietcornersofaustralia.com">info@quietcornersofaustralia.com</a></p>
+            <p><a href="tel:+61434629664">+61 434 629 664</a></p>
           </address>
         </div>
       </div>

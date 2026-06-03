@@ -60,8 +60,8 @@ npx serve .
 
 Update phone and email in `index.html`:
 
-- Phone: `0400 000 000`
-- Email: `enquiries@quietcorners.com.au`
+- Phone: `+61 434 629 664`
+- Email: `info@quietcornersofaustralia.com`
 
 ### Add real photography
 

@@ -9,6 +9,7 @@ html.is-theme-transitioning *::before,
 html.is-theme-transitioning *::after {
   transition:
     background-color var(--transition-theme),
+    background var(--transition-theme),
     color var(--transition-theme),
     border-color var(--transition-theme),
     box-shadow var(--transition-theme),
@@ -75,7 +76,7 @@ body {
 
 [data-theme="dark"] .theme-toggle__thumb {
   transform: translateX(26px);
-  box-shadow: 0 0 12px rgba(224, 160, 102, 0.35);
+  box-shadow: 0 0 12px rgba(212, 176, 106, 0.35);
 }
 
 .theme-toggle__icon {
@@ -86,13 +87,13 @@ body {
 }
 
 .theme-toggle__icon--sun {
-  color: #D68E49;
+  color: var(--color-gold, #C89B3C);
   opacity: 1;
   transform: rotate(0deg) scale(1);
 }
 
 .theme-toggle__icon--moon {
-  color: #E0C878;
+  color: var(--color-sand, #DCC7A1);
   opacity: 0;
   transform: rotate(-30deg) scale(0.5);
 }
@@ -157,7 +158,7 @@ body {
 }
 
 [data-theme="dark"] .footer {
-  background: var(--color-dark);
+  background: var(--gradient-footer);
   box-shadow: inset 0 1px 0 var(--color-footer-border);
 }
 

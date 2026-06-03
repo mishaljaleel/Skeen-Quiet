@@ -26,7 +26,7 @@
 
   function handleScroll() {
     if (header) {
-      header.classList.toggle('is-scrolled', window.scrollY > 50);
+    header.classList.toggle('is-scrolled', window.scrollY > 50);
     }
   }
 
@@ -92,7 +92,7 @@
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
       if (isMobileNav()) {
-        closeNav();
+      closeNav();
       }
       navLinks.forEach(function (l) { l.classList.remove('active'); });
       link.classList.add('active');
@@ -230,86 +230,21 @@
 
   /* ---------- Form Validation Helper ---------- */
   function validateForm(form, fields) {
-    var valid = true;
-
-    function clearFieldError(field) {
-      field.classList.remove('is-error');
-      field.removeAttribute('aria-invalid');
-
-      var describedBy = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
-      var errorId = field.id ? field.id + '-error' : '';
-
-      if (errorId) {
-        var existing = form.querySelector('#' + CSS.escape(errorId));
-        if (existing) existing.remove();
-        describedBy = describedBy.filter(function (id) { return id !== errorId; });
-      }
-
-      if (describedBy.length) field.setAttribute('aria-describedby', describedBy.join(' '));
-      else field.removeAttribute('aria-describedby');
-    }
-
-    function setFieldError(field, message) {
-      var errorId = field.id ? field.id + '-error' : '';
-      field.classList.add('is-error');
-      field.setAttribute('aria-invalid', 'true');
-
-      if (!errorId) return;
-
-      var existing = form.querySelector('#' + CSS.escape(errorId));
-      if (existing) existing.remove();
-
-      var p = document.createElement('p');
-      p.className = 'form-error';
-      p.id = errorId;
-      p.textContent = message;
-      field.insertAdjacentElement('afterend', p);
-
-      var describedBy = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
-      if (describedBy.indexOf(errorId) === -1) describedBy.push(errorId);
-      field.setAttribute('aria-describedby', describedBy.join(' '));
-    }
+      var valid = true;
 
     fields.forEach(function (field) {
-      clearFieldError(field);
-
-      var value = field.value.trim();
-      if (!value) {
-        setFieldError(field, 'This field is required.');
-        valid = false;
-        return;
-      }
-
-      if (field.name === 'name') {
-        if (value.length < 2 || value.length > 80) {
-          setFieldError(field, 'Please enter your full name (2–80 characters).');
+      field.classList.remove('is-error');
+        if (!field.value.trim()) {
+        field.classList.add('is-error');
           valid = false;
-          return;
         }
-        if (!/^[A-Za-z][A-Za-z\s.'-]*$/.test(value)) {
-          setFieldError(field, 'Name can contain letters and spaces only.');
-          valid = false;
-          return;
-        }
-      }
-
-      if (field.name === 'phone') {
-        var digits = value.replace(/\D/g, '');
-        var isAuMobile = (digits.length === 10 && digits.indexOf('04') === 0) || (digits.length === 11 && digits.indexOf('614') === 0);
-        if (!isAuMobile) {
-          setFieldError(field, 'Enter an Australian mobile number (e.g. 04xxxxxxxx).');
-          valid = false;
-          return;
-        }
-      }
-    });
+      });
 
     var emailField = form.querySelector('input[type="email"]');
     if (emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
-      clearFieldError(emailField);
-      setFieldError(emailField, 'Please enter a valid email address.');
-      valid = false;
-    }
+      emailField.classList.add('is-error');
+        valid = false;
+      }
 
     return valid;
   }
@@ -322,14 +257,14 @@
       if (!validateForm(form, requiredFields)) return;
 
       var btn = form.querySelector('button[type="submit"]');
-      var originalText = btn.textContent;
+        var originalText = btn.textContent;
       btn.textContent = successMessage;
-      btn.disabled = true;
+        btn.disabled = true;
       form.reset();
 
-      setTimeout(function () {
-        btn.textContent = originalText;
-        btn.disabled = false;
+        setTimeout(function () {
+          btn.textContent = originalText;
+          btn.disabled = false;
       }, 3500);
     });
   }
@@ -390,16 +325,13 @@
   }
 
   function handleBookingChannel(form, channel, btn) {
-    var requiredFields = form.querySelectorAll('[required]');
-    if (!validateForm(form, requiredFields)) return;
-
     var message = buildBookingMessage(form);
     var label = btn.querySelector('.booking__btn-label');
     var originalText = label ? label.textContent : btn.textContent;
     btn.disabled = true;
 
     if (channel === 'whatsapp') {
-      var whatsappNumber = (form.dataset.whatsapp || '9946335425').replace(/\D/g, '');
+      var whatsappNumber = (form.dataset.whatsapp || '61434629664').replace(/\D/g, '');
       var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       setBookingButtonLabel(btn, 'Opening WhatsApp…');
