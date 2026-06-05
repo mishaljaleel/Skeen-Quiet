@@ -7,6 +7,7 @@
   z-index: 1000;
   height: auto;
   min-height: var(--header-height);
+  padding-top: env(safe-area-inset-top, 0px);
   transition: background var(--transition-base), box-shadow var(--transition-base), backdrop-filter var(--transition-base);
 }
 
@@ -251,9 +252,12 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
   display: flex;
   align-items: center;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
   overflow: hidden;
 }
 
