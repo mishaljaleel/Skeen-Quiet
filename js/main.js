@@ -18,13 +18,11 @@
   var headerInner = header ? header.querySelector('.header__inner') : null;
 
   function syncHeaderHeight() {
-    if (!headerInner) return;
+    if (!headerInner || isMobileNav()) return;
     if (nav && nav.classList.contains('is-open')) return;
 
     var height = Math.round(headerInner.getBoundingClientRect().height);
-    var minHeight = isMobileNav() ? 56 : 64;
-    var maxHeight = isMobileNav() ? 88 : 100;
-    height = Math.min(Math.max(height, minHeight), maxHeight);
+    height = Math.min(Math.max(height, 64), 100);
 
     document.documentElement.style.setProperty('--header-height', height + 'px');
   }
@@ -45,19 +43,25 @@
   }
 
   function lockBodyScroll() {
-    scrollPosition = window.scrollY;
+    scrollPosition = window.scrollY || window.pageYOffset;
+    document.documentElement.classList.add('nav-open');
     document.body.classList.add('nav-open');
     document.body.style.top = '-' + scrollPosition + 'px';
     document.body.style.position = 'fixed';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
   }
 
   function unlockBodyScroll() {
     if (!document.body.classList.contains('nav-open')) return;
+    document.documentElement.classList.remove('nav-open');
     document.body.classList.remove('nav-open');
     document.body.style.position = '';
     document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
     document.body.style.width = '';
     document.body.style.overflow = '';
     window.scrollTo(0, scrollPosition);
@@ -69,6 +73,11 @@
     nav.classList.toggle('is-open', isOpen);
     navToggle.classList.toggle('is-active', isOpen);
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Toggle navigation menu');
+
+    if (header) {
+      header.classList.toggle('is-nav-open', isOpen);
+    }
 
     if (navBackdrop) {
       navBackdrop.classList.toggle('is-visible', isOpen);

@@ -49,6 +49,7 @@
 
 /* —— Hero —— */
 .hero {
+  min-height: calc(var(--vh, 1vh) * 100);
   min-height: 100vh;
   min-height: 100svh;
   min-height: 100dvh;
@@ -719,12 +720,12 @@
 }
 
 /* —— Light theme refinements —— */
-[data-theme="light"] .header.is-scrolled .nav__link {
+[data-theme="light"] .header.is-scrolled ~ .nav .nav__link {
   color: var(--color-text-muted);
 }
 
-[data-theme="light"] .header.is-scrolled .nav__link:hover,
-[data-theme="light"] .header.is-scrolled .nav__link.active {
+[data-theme="light"] .header.is-scrolled ~ .nav .nav__link:hover,
+[data-theme="light"] .header.is-scrolled ~ .nav .nav__link.active {
   color: var(--color-text);
 }
 

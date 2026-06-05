@@ -30,6 +30,56 @@
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
+  <script>
+    (function () {
+      function setViewportVars() {
+        var height = window.innerHeight;
+        document.documentElement.style.setProperty('--vh', (height * 0.01) + 'px');
+      }
+
+      setViewportVars();
+      window.addEventListener('resize', setViewportVars);
+      window.addEventListener('orientationchange', function () {
+        setTimeout(setViewportVars, 250);
+      });
+      window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+          setViewportVars();
+        }
+      });
+    })();
+  </script>
+  <style>
+    /* Critical iOS/mobile layout — applied before external CSS loads */
+    @media (max-width: 1100px) {
+      :root {
+        --header-height: 64px;
+      }
+
+      .header__inner {
+        height: 64px;
+        min-height: 64px;
+        max-height: 64px;
+      }
+
+      #nav {
+        position: fixed !important;
+        inset: 0 !important;
+        height: 100% !important;
+        max-height: none !important;
+      }
+
+      .hero {
+        min-height: calc(var(--vh, 1vh) * 100);
+        align-items: flex-start;
+      }
+
+      .hero__content {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
   <title>Quiet Corners of Australia | Peaceful Accommodation for Healthcare Professionals</title>
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +92,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/luxury.css">
+  <link rel="stylesheet" href="css/ios-fixes.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,19 +123,6 @@
         <span class="logo__text">Quiet Corners<span class="logo__sub">of Australia</span></span>
       </a>
 
-      <nav class="nav" id="nav" aria-label="Main navigation">
-        <ul class="nav__list">
-          <li><a href="#home" class="nav__link active">Home</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#features" class="nav__link">Features</a></li>
-          <li><a href="#nature" class="nav__link">Nature</a></li>
-          <li><a href="#rooms" class="nav__link">Rooms</a></li>
-          <li><a href="#gallery" class="nav__link">Gallery</a></li>
-          <!-- <li><a href="#agencies" class="nav__link">Agencies</a></li> -->
-          <li><a href="#bookingForm" class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-
       <div class="header__actions">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to night theme" aria-pressed="false">
           <span class="theme-toggle__track">
@@ -109,6 +147,20 @@
       </button>
     </div>
   </header>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <ul class="nav__list">
+      <li><a href="#home" class="nav__link active">Home</a></li>
+      <li><a href="#about" class="nav__link">About</a></li>
+      <li><a href="#features" class="nav__link">Features</a></li>
+      <li><a href="#nature" class="nav__link">Nature</a></li>
+      <li><a href="#rooms" class="nav__link">Rooms</a></li>
+      <li><a href="#gallery" class="nav__link">Gallery</a></li>
+      <!-- <li><a href="#agencies" class="nav__link">Agencies</a></li> -->
+      <li><a href="#bookingForm" class="nav__link">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
   <main>

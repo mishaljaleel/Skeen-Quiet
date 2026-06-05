@@ -115,7 +115,14 @@
 
 /* Mobile Navigation — hamburger menu for tablets & phones */
 @media (max-width: 1100px) {
+  :root {
+    --header-height: 64px;
+  }
+
   .header__inner {
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
     padding-block: 0;
   }
 
@@ -126,16 +133,28 @@
   }
 
   .logo {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
     flex-shrink: 1;
     min-width: 0;
     max-width: calc(100% - 7.5rem);
     order: 1;
+    gap: 0.35rem;
+  }
+
+  .logo__text {
+    line-height: 1.1;
   }
 
   .nav-toggle {
     display: flex;
     order: 3;
     flex-shrink: 0;
+  }
+
+  .header.is-nav-open {
+    z-index: 1002;
   }
 
   .nav {
@@ -145,6 +164,12 @@
     right: 0;
     bottom: 0;
     z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100%;
+    max-height: none;
     background: var(--color-bg);
     padding:
       calc(4.25rem + env(safe-area-inset-top, 0px))
@@ -159,6 +184,7 @@
     overscroll-behavior: contain;
     visibility: hidden;
     pointer-events: none;
+    contain: layout style paint;
   }
 
   .nav.is-open {
@@ -202,10 +228,17 @@
     color: var(--color-accent) !important;
   }
 
-  .header:not(.is-scrolled) .nav__link,
-  .header:not(.is-scrolled) .nav__link:hover,
-  .header:not(.is-scrolled) .nav__link.active {
+  .header:not(.is-scrolled) ~ .nav .nav__link,
+  .header:not(.is-scrolled) ~ .nav .nav__link:hover,
+  .header:not(.is-scrolled) ~ .nav .nav__link.active {
     text-shadow: none;
+  }
+
+  html.nav-open,
+  body.nav-open {
+    overflow: hidden;
+    touch-action: none;
+    height: 100%;
   }
 }
 
@@ -213,12 +246,14 @@
 @media (max-width: 768px) {
   :root {
     --space-5xl: 4rem;
-    --header-height: 68px;
+    --header-height: 64px;
   }
 
+  html.nav-open,
   body.nav-open {
     overflow: hidden;
     touch-action: none;
+    height: 100%;
   }
 
   .hero {
