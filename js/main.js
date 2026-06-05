@@ -278,31 +278,6 @@
   var bookingWhatsAppBtn = document.getElementById('bookingWhatsAppBtn');
   var bookingMessengerBtn = document.getElementById('bookingMessengerBtn');
 
-  function copyTextToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text);
-    }
-
-    return new Promise(function (resolve, reject) {
-      var textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'absolute';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.select();
-
-      try {
-        document.execCommand('copy');
-        resolve();
-      } catch (err) {
-        reject(err);
-      } finally {
-        document.body.removeChild(textarea);
-      }
-    });
-  }
-
   function resetBookingButton(btn, originalText) {
     var label = btn.querySelector('.booking__btn-label');
     setTimeout(function () {
@@ -340,28 +315,18 @@
       return;
     }
 
-    var messengerId = (form.dataset.messenger || '').trim();
+    var messengerId = (form.dataset.messenger || '61590515375020').trim().replace(/^@/, '');
     if (!messengerId) {
       btn.disabled = false;
       window.alert('Messenger is not configured yet. Please contact us via WhatsApp or email.');
       return;
     }
 
-    setBookingButtonLabel(btn, 'Copying message…');
-
-    copyTextToClipboard(message).then(function () {
-      var messengerUrl = 'https://m.me/' + encodeURIComponent(messengerId.replace(/^@/, ''));
-      window.open(messengerUrl, '_blank', 'noopener,noreferrer');
-      setBookingButtonLabel(btn, 'Opening Messenger…');
-      form.reset();
-      resetBookingButton(btn, originalText);
-    }).catch(function () {
-      var messengerUrl = 'https://m.me/' + encodeURIComponent(messengerId.replace(/^@/, ''));
-      window.open(messengerUrl, '_blank', 'noopener,noreferrer');
-      setBookingButtonLabel(btn, 'Opening Messenger…');
-      form.reset();
-      resetBookingButton(btn, originalText);
-    });
+    var messengerUrl = 'https://m.me/' + messengerId;
+    window.open(messengerUrl, '_blank', 'noopener,noreferrer');
+    setBookingButtonLabel(btn, 'Opening Messenger…');
+    form.reset();
+    resetBookingButton(btn, originalText);
   }
 
   if (bookingForm && bookingWhatsAppBtn) {
