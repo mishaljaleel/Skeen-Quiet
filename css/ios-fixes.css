@@ -48,8 +48,8 @@
 
   .about__nearby-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-sm);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -62,13 +62,7 @@
     min-height: auto;
     height: auto;
     overflow: visible;
-    padding: var(--space-md) var(--space-xs) var(--space-md);
-  }
-
-  .about__nearby-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    width: min(100%, 12.5rem);
-    justify-self: center;
+    padding: var(--space-md) var(--space-sm);
   }
 
   .about__nearby-place {
@@ -98,12 +92,6 @@
     .about__nearby-card {
       padding: var(--space-lg) var(--space-md) var(--space-md);
       min-height: 11.5rem;
-    }
-
-    .about__nearby-card:last-child:nth-child(odd) {
-      grid-column: auto;
-      width: 100%;
-      justify-self: stretch;
     }
   }
 

@@ -725,7 +725,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-md);
   width: 100%;
   max-width: 56rem;
@@ -751,12 +751,6 @@
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
 }
 
-.about__nearby-card:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  width: min(100%, 12.5rem);
-  justify-self: center;
-}
-
 @media (min-width: 769px) {
   .about__nearby-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -766,12 +760,6 @@
   .about__nearby-card {
     min-height: 11.5rem;
     padding: var(--space-lg) var(--space-md) var(--space-md);
-  }
-
-  .about__nearby-card:last-child:nth-child(odd) {
-    grid-column: auto;
-    width: 100%;
-    justify-self: stretch;
   }
 }
 
