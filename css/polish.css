@@ -1,0 +1,370 @@
+/**
+ * UX polish — spacing rhythm, hierarchy, alignment, responsiveness
+ */
+
+:root {
+  --section-y: clamp(3rem, 6.5vw, 5rem);
+  --section-header-gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  --content-gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* —— Global section rhythm —— */
+.section {
+  padding-block: var(--section-y);
+}
+
+.section__header,
+.section__header--center {
+  margin-bottom: var(--section-header-gap);
+}
+
+.section__label {
+  margin-bottom: var(--space-sm);
+}
+
+.section__desc {
+  margin-top: var(--space-md);
+  max-width: 42rem;
+}
+
+.section__header--center .section__desc {
+  margin-inline: auto;
+}
+
+/* —— Hero —— */
+.hero__inner {
+  padding-block: clamp(var(--space-lg), 4vh, var(--space-3xl));
+  width: 100%;
+}
+
+.hero__content {
+  padding: clamp(var(--space-lg), 3.5vw, var(--space-xl));
+}
+
+.hero__location {
+  margin-bottom: var(--space-md);
+}
+
+.hero__title {
+  margin-bottom: var(--space-md);
+}
+
+.hero__subtitle {
+  margin-bottom: var(--space-lg);
+  max-width: 36rem;
+  line-height: 1.65;
+}
+
+.hero__actions {
+  margin-bottom: var(--space-md);
+  gap: var(--space-sm);
+}
+
+.hero__tagline {
+  margin-top: 0;
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-lg));
+}
+
+.hero__scroll {
+  bottom: clamp(4rem, 8vw, 6rem);
+}
+
+/* —— About —— */
+.about__layout {
+  gap: clamp(var(--space-xl), 4vw, var(--space-3xl));
+  align-items: stretch;
+}
+
+.about__title {
+  max-width: none;
+  margin-bottom: var(--space-lg);
+}
+
+.about__copy {
+  margin-bottom: var(--space-xl);
+  padding-left: var(--space-md);
+}
+
+.about__lead {
+  margin-bottom: var(--space-md);
+}
+
+.about__highlights {
+  gap: var(--space-sm);
+}
+
+.about__highlight {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.about__aside {
+  gap: var(--space-lg);
+}
+
+/* about__nearby styled in components.css (green band) */
+
+/* —— Features —— */
+.features__grid {
+  gap: var(--space-md);
+}
+
+.feature-card {
+  padding: var(--space-lg) var(--space-md);
+}
+
+.feature-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+}
+
+.features__offer {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
+  gap: var(--space-lg);
+}
+
+/* —— Nature —— */
+.nature__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.nature-card {
+  padding: var(--space-lg) var(--space-md);
+  height: 100%;
+}
+
+.nature-card__emoji {
+  margin-bottom: var(--space-sm);
+}
+
+.nature-card__title {
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+  margin-bottom: var(--space-xs);
+}
+
+.nature-card__desc {
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.nature__quote {
+  padding: var(--space-lg) var(--space-xl);
+  margin-top: 0;
+}
+
+.nature .section__header {
+  margin-bottom: var(--section-header-gap);
+}
+
+/* —— Pricing —— */
+.pricing__grid {
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.pricing-card {
+  padding: var(--space-xl);
+  padding-top: calc(var(--space-xl) + var(--space-sm));
+}
+
+.pricing-card__header {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.pricing-card__features {
+  margin-bottom: var(--space-lg);
+}
+
+.pricing__note {
+  padding: var(--space-md) var(--space-lg);
+}
+
+/* —— Gallery —— */
+.gallery__panel {
+  margin-bottom: var(--space-xl);
+}
+
+.gallery__categories {
+  gap: var(--space-md);
+}
+
+/* —— Testimonials —— */
+.testimonials__slider {
+  margin-top: 0;
+}
+
+.testimonial-card {
+  padding: var(--space-xl);
+}
+
+/* —— Booking —— */
+.booking__layout {
+  gap: var(--space-lg);
+}
+
+.booking__bottom {
+  margin-top: var(--space-lg);
+  gap: var(--space-lg);
+}
+
+.booking__card {
+  padding: var(--space-xl);
+}
+
+.booking__title {
+  margin-bottom: var(--space-md);
+}
+
+.booking__lead {
+  margin-bottom: 0;
+}
+
+.booking__quick {
+  margin-top: var(--space-lg);
+}
+
+.booking__quick-list {
+  gap: var(--space-sm);
+}
+
+.booking__follow {
+  padding: var(--space-lg);
+}
+
+.booking__social {
+  gap: var(--space-sm);
+}
+
+/* —— Footer —— */
+.footer {
+  padding-block: var(--space-3xl) var(--space-xl);
+}
+
+.footer__grid {
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer__bottom {
+  padding-top: var(--space-lg);
+  gap: var(--space-sm);
+}
+
+/* —— Tablet —— */
+@media (max-width: 1024px) {
+  .nature__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: min(100%, 36rem);
+    margin-inline: auto;
+  }
+
+  .features__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* —— Mobile —— */
+@media (max-width: 768px) {
+  :root {
+    --section-y: clamp(2.5rem, 7vw, 3.5rem);
+    --section-header-gap: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .hero__inner {
+    padding-block: var(--space-lg);
+  }
+
+  .hero__content {
+    margin-inline: auto;
+  }
+
+  .about__copy {
+    padding-left: var(--space-sm);
+    border-left-width: 2px;
+  }
+
+  .about__highlights {
+    gap: var(--space-xs);
+  }
+
+  .about__highlight {
+    padding: var(--space-sm);
+  }
+
+  .about__highlight-text {
+    padding-top: 0.2rem;
+    font-size: var(--fs-xs);
+  }
+
+  .nature__grid {
+    grid-template-columns: 1fr;
+    max-width: 22rem;
+    margin-inline: auto;
+    margin-bottom: var(--space-xl);
+  }
+
+  .nature__quote {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .pricing-card {
+    padding: var(--space-lg);
+  }
+
+  .pricing-card__rate-row {
+    align-items: flex-start;
+  }
+
+  .feature-card {
+    padding: var(--space-md);
+  }
+
+  .features__offer {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+  }
+
+  .features__offer-body {
+    text-align: center;
+  }
+
+  .booking__card {
+    padding: var(--space-lg);
+  }
+
+  .booking__bottom {
+    margin-top: var(--space-md);
+  }
+
+  .section__title {
+    font-size: clamp(var(--fs-xl), 6vw, var(--fs-2xl));
+  }
+
+  .section__desc {
+    font-size: var(--fs-sm);
+    margin-top: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__subtitle br {
+    display: none;
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs-sm);
+  }
+
+  .pricing__grid {
+    max-width: 100%;
+  }
+}

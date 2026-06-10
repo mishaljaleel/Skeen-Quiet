@@ -82,8 +82,8 @@
   background: var(--color-hero-badge-bg);
   color: var(--color-hero-badge-text);
   border: 1px solid var(--color-glass-border);
-  letter-spacing: 0.16em;
-  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  font-size: var(--fs-sm);
   transition: background var(--transition-theme), color var(--transition-theme), border-color var(--transition-theme);
 }
 
@@ -136,7 +136,7 @@
 
 /* —— Sections —— */
 .section {
-  padding-block: clamp(var(--space-4xl), 10vw, var(--space-5xl);
+  padding-block: clamp(var(--space-3xl), 6.5vw, var(--space-4xl));
 }
 
 .section__label {
@@ -174,7 +174,12 @@
 
 /* —— About —— */
 .about {
-  transition: background var(--transition-theme);
+  padding-bottom: 0;
+}
+
+.about__nearby-band + .container,
+.about .about__nearby-band:last-child {
+  margin-bottom: 0;
 }
 
 .about__highlight {
@@ -243,6 +248,22 @@
   color: var(--color-gold);
 }
 
+.features__offer {
+  background: var(--color-surface);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--color-gold-soft);
+}
+
+.features__offer-badge {
+  background: var(--gradient-gold);
+  color: var(--color-on-gold);
+  box-shadow: 0 8px 28px var(--color-gold-soft);
+}
+
+.features__offer-text strong {
+  color: var(--color-gold);
+}
+
 /* —— Nature —— */
 .nature-card {
   background: var(--color-glass-bg);
@@ -289,20 +310,8 @@
   padding: var(--space-2xl);
   box-shadow: var(--shadow-card);
   transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-theme), border-color var(--transition-theme);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
-}
-
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gradient-gold);
-  opacity: 0;
-  transition: opacity var(--transition-base);
 }
 
 .pricing-card:hover {
@@ -310,26 +319,19 @@
   box-shadow: var(--shadow-card-hover);
 }
 
-.pricing-card:hover::before {
-  opacity: 1;
-}
-
 .pricing-card--featured {
   border-color: var(--color-gold);
   box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-gold-soft);
 }
 
-.pricing-card--featured::before {
-  opacity: 1;
+.pricing-card__badge {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.pricing-card__badge {
-  background: var(--gradient-gold);
-  color: var(--color-on-gold);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  border-radius: var(--radius-full);
-  padding: 0.35rem 1rem;
+.pricing-card:hover .pricing-card__badge {
+  transform: translate(-50%, -50%);
 }
 
 .pricing-card__title {
@@ -342,7 +344,22 @@
   font-size: var(--fs-3xl);
 }
 
-.pricing-card__discount,
+.pricing-card__amount--nightly,
+.pricing-card__amount--daily {
+  color: var(--color-text);
+  font-size: var(--fs-xl);
+}
+
+.pricing-card__discount-badge {
+  background: var(--gradient-gold);
+  color: var(--color-on-gold);
+  box-shadow: 0 8px 24px var(--color-gold-soft);
+}
+
+.pricing-card--featured .pricing-card__discount-badge {
+  box-shadow: 0 8px 28px rgba(200, 155, 60, 0.45);
+}
+
 .pricing-card__features {
   color: var(--color-text-muted);
 }
@@ -602,6 +619,20 @@
   color: var(--color-on-accent);
 }
 
+.header__cta.btn--primary {
+  background: var(--gradient-gold);
+  border-color: transparent;
+  color: var(--color-on-gold);
+  box-shadow: 0 4px 20px var(--color-gold-soft);
+}
+
+.header__cta.btn--primary:hover {
+  background: var(--color-secondary-hover);
+  border-color: transparent;
+  color: var(--color-on-gold);
+  box-shadow: 0 8px 28px var(--color-gold-soft);
+}
+
 .btn--outline {
   color: var(--color-text);
   border-color: var(--color-border);
@@ -667,6 +698,11 @@
   bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
   right: calc(1.25rem + env(safe-area-inset-right, 0px));
   background: #25d366;
+}
+
+.fab--whatsapp:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 @media (min-width: 769px) {

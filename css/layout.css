@@ -16,18 +16,18 @@ body {
 }
 
 .section {
-  padding-block: var(--space-5xl);
+  padding-block: clamp(var(--space-3xl), 6vw, var(--space-4xl));
 }
 
 .section__header {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: clamp(var(--space-2xl), 4vw, var(--space-3xl));
 }
 
 .section__header--center {
   text-align: center;
   max-width: 680px;
   margin-inline: auto;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: clamp(var(--space-2xl), 4vw, var(--space-3xl));
 }
 
 .section__header--light .section__label,

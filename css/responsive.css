@@ -14,19 +14,19 @@
   }
 
   .logo {
-    max-width: min(8.5rem, 32vw);
+    max-width: min(8.5rem, 34vw);
   }
 
   .logo__text {
-    font-size: clamp(0.6rem, 1.4vw, 0.7rem);
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem);
   }
 
   .logo__mark .logo__img {
-    width: clamp(32px, 4vw, 38px);
+    width: clamp(36px, 4.5vw, 42px);
   }
 
   .header.is-scrolled .logo__mark .logo__img {
-    width: clamp(30px, 3.75vw, 36px);
+    width: clamp(34px, 4.25vw, 40px);
   }
 
   .logo__mark .logo__img--footer {
@@ -38,6 +38,16 @@
     gap: var(--space-3xl);
   }
 
+  .about__nearby-grid {
+    gap: var(--space-md);
+  }
+
+  .about__nearby-card {
+    flex: 0 1 calc(33.333% - var(--space-md) * 0.667);
+    max-width: calc(33.333% - var(--space-md) * 0.667);
+    min-width: 8.5rem;
+  }
+
   .about__title {
     max-width: none;
   }
@@ -47,13 +57,12 @@
   }
 
   .nature__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .pricing__grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
-    margin-inline: auto;
+    max-width: min(100%, 36rem);
   }
 
   .gallery__categories {
@@ -270,11 +279,11 @@
   }
 
   .logo__mark {
-    min-height: 30px;
+    min-height: 36px;
   }
 
   .logo__text {
-    font-size: clamp(0.55rem, 2.8vw, 0.65rem);
+    font-size: clamp(0.58rem, 2.9vw, 0.68rem);
   }
 
   .logo__sub {
@@ -282,11 +291,11 @@
   }
 
   .logo__mark .logo__img {
-    width: clamp(30px, 8vw, 36px);
+    width: clamp(36px, 9vw, 42px);
   }
 
   .header.is-scrolled .logo__mark .logo__img {
-    width: clamp(28px, 7.5vw, 34px);
+    width: clamp(34px, 8.5vw, 40px);
   }
 
   .logo__mark .logo__img--footer {
@@ -315,8 +324,35 @@
     padding-left: var(--space-md);
   }
 
+  .about__nearby-grid {
+    gap: var(--space-sm);
+  }
+
+  .about__nearby-card {
+    flex: 0 1 calc(50% - var(--space-sm) * 0.5);
+    max-width: calc(50% - var(--space-sm) * 0.5);
+    min-width: 7.5rem;
+    min-height: 10.5rem;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .about__nearby-decor {
+    width: 8rem;
+    opacity: 0.65;
+  }
+
+  .about__nearby-title {
+    font-size: clamp(var(--fs-xl), 6vw, var(--fs-2xl));
+  }
+
   .features__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features__offer {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-lg);
   }
 
   .nature__grid {
@@ -360,11 +396,11 @@
   }
 
   .logo__mark .logo__img {
-    width: 30px;
+    width: 36px;
   }
 
   .logo__text {
-    font-size: 0.55rem;
+    font-size: 0.6rem;
   }
 
   .nav {
@@ -385,6 +421,26 @@
 
   .hero__scroll {
     display: none;
+  }
+
+  .pricing-card__rate-row {
+    flex-wrap: wrap;
+  }
+
+  .pricing-card__discount-badge {
+    width: 4.75rem;
+    height: 4.75rem;
+  }
+
+  .pricing-card__discount-badge-amount {
+    font-size: var(--fs-lg);
+  }
+
+  .about__nearby-card {
+    flex: 1 1 100%;
+    max-width: 14rem;
+    min-width: 0;
+    margin-inline: auto;
   }
 
   .booking__social {
