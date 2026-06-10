@@ -39,13 +39,19 @@
   }
 
   .about__nearby-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-md);
   }
 
   .about__nearby-card {
-    flex: 0 1 calc(33.333% - var(--space-md) * 0.667);
-    max-width: calc(33.333% - var(--space-md) * 0.667);
-    min-width: 8.5rem;
+    min-height: 10.5rem;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .about__nearby-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 12.5rem);
+    justify-self: center;
   }
 
   .about__title {
@@ -329,10 +335,7 @@
   }
 
   .about__nearby-card {
-    flex: 0 1 calc(50% - var(--space-sm) * 0.5);
-    max-width: calc(50% - var(--space-sm) * 0.5);
-    min-width: 7.5rem;
-    min-height: 10.5rem;
+    min-height: 10rem;
     padding: var(--space-md) var(--space-sm);
   }
 
@@ -434,13 +437,6 @@
 
   .pricing-card__discount-badge-amount {
     font-size: var(--fs-lg);
-  }
-
-  .about__nearby-card {
-    flex: 1 1 100%;
-    max-width: 14rem;
-    min-width: 0;
-    margin-inline: auto;
   }
 
   .booking__social {

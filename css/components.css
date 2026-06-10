@@ -640,7 +640,8 @@
     radial-gradient(ellipse 80% 60% at 100% 0%, rgba(200, 155, 60, 0.08) 0%, transparent 55%),
     linear-gradient(160deg, #163A2C 0%, #1F4D3A 42%, #1A3D30 100%);
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .about__nearby {
@@ -717,10 +718,10 @@
 .about__nearby-grid {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr));
   gap: var(--space-lg);
+  width: 100%;
   max-width: 56rem;
   margin-inline: auto;
 }
@@ -731,9 +732,8 @@
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  flex: 0 1 calc(25% - var(--space-lg) * 0.75);
-  min-width: 9.75rem;
-  max-width: 12.5rem;
+  width: 100%;
+  min-width: 0;
   min-height: 11.5rem;
   padding: var(--space-lg) var(--space-md) var(--space-md);
   background: rgba(255, 255, 255, 0.06);
@@ -810,6 +810,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .about__tagline {

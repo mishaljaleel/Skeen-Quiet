@@ -54,4 +54,28 @@
       margin-top: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    .about__nearby-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+    }
+
+    .about__nearby-card {
+      min-width: 0;
+      max-width: none;
+    }
+
+    .about__nearby-header {
+      max-width: 100%;
+      padding-right: 5rem;
+    }
+
+    .about__nearby-decor {
+      width: 5.5rem;
+      top: 0;
+      right: 0;
+      opacity: 0.5;
+    }
+  }
 }
