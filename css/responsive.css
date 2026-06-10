@@ -38,22 +38,6 @@
     gap: var(--space-3xl);
   }
 
-  .about__nearby-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-md);
-  }
-
-  .about__nearby-card {
-    min-height: 10.5rem;
-    padding: var(--space-md) var(--space-sm);
-  }
-
-  .about__nearby-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    width: min(100%, 12.5rem);
-    justify-self: center;
-  }
-
   .about__title {
     max-width: none;
   }
@@ -328,15 +312,6 @@
 
   .about__copy {
     padding-left: var(--space-md);
-  }
-
-  .about__nearby-grid {
-    gap: var(--space-sm);
-  }
-
-  .about__nearby-card {
-    min-height: 10rem;
-    padding: var(--space-md) var(--space-sm);
   }
 
   .about__nearby-decor {

@@ -31,6 +31,82 @@
     background: var(--color-header-scrolled);
   }
 
+  /* Nearby band — iOS Safari grid + overflow fixes */
+  .about {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .about__nearby-band {
+    overflow: visible;
+  }
+
+  .about__nearby[data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .about__nearby-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about__nearby-card {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+    padding: var(--space-md) var(--space-xs) var(--space-md);
+  }
+
+  .about__nearby-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 12.5rem);
+    justify-self: center;
+  }
+
+  .about__nearby-place {
+    min-height: 0;
+    overflow: visible;
+    word-break: break-word;
+  }
+
+  .about__nearby-header {
+    max-width: 100%;
+    padding-right: 4.5rem;
+  }
+
+  .about__nearby-decor {
+    width: 5rem;
+    top: 0;
+    right: 0;
+    opacity: 0.45;
+  }
+
+  @media (min-width: 769px) {
+    .about__nearby-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .about__nearby-card {
+      padding: var(--space-lg) var(--space-md) var(--space-md);
+      min-height: 11.5rem;
+    }
+
+    .about__nearby-card:last-child:nth-child(odd) {
+      grid-column: auto;
+      width: 100%;
+      justify-self: stretch;
+    }
+  }
+
   @media (max-width: 1100px) {
     .header__inner {
       height: 64px;
@@ -52,30 +128,6 @@
     .nav__list {
       flex: 0 0 auto;
       margin-top: 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .about__nearby-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      width: 100%;
-    }
-
-    .about__nearby-card {
-      min-width: 0;
-      max-width: none;
-    }
-
-    .about__nearby-header {
-      max-width: 100%;
-      padding-right: 5rem;
-    }
-
-    .about__nearby-decor {
-      width: 5.5rem;
-      top: 0;
-      right: 0;
-      opacity: 0.5;
     }
   }
 }
